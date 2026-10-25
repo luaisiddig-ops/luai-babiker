@@ -1,0 +1,959 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;800&family=Cairo:wght@300;400;600&family=Archivo:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"></head><body>
+<div id="splashCover" style="position:fixed;inset:0;z-index:99999;background:#050D1A;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;transition:opacity .6s ease;padding:16px">
+  <img src="assets/logo-cropped.png" alt="Luai Siddig Studio" style="height:min(130px,20vh)">
+  <div style="text-align:center">
+    <div style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-weight:700;letter-spacing:.12em;font-size:clamp(22px,4vw,34px);color:#E9EDF4">LUAI BABIKER SIDDIG</div>
+    <div style="font-family:'Noto Kufi Arabic','Segoe UI',Tahoma,sans-serif;font-weight:800;font-size:clamp(16px,2.6vw,22px);color:#F3CE97;margin-top:6px">لؤي بابكر صديق</div>
+  </div>
+  <form id="splashForm" style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap;justify-content:center">
+    <input id="splashName" type="text" required placeholder="الاسم الكامل" style="background:#0F1521;border:1px solid rgba(231,170,81,.4);color:#E9EDF4;padding:12px 18px;border-radius:999px;font-family:'Cairo','Segoe UI',Tahoma,sans-serif;font-size:14px;min-width:220px;text-align:center">
+    <button type="submit" style="background:#E7AA51;color:#050D1A;border:none;padding:12px 28px;border-radius:999px;font-family:'Cairo','Segoe UI',Tahoma,sans-serif;font-weight:700;font-size:14px;cursor:pointer">دخول</button>
+  </form>
+</div>
+<form name="document-views" data-netlify="true" hidden><input name="name"><input name="at"><input name="document"></form>
+<script>
+(function(){
+  var cover = document.getElementById('splashCover');
+  var KEY = 'luaiSplash.seen.v1';
+  function dismiss(name){
+    cover.style.opacity = '0';
+    setTimeout(function(){ cover.remove(); }, 650);
+    sessionStorage.setItem(KEY, '1');
+    var at = new Date().toISOString();
+    var doc = 'لؤي بابكر صديق - الموقع الشخصي';
+    fetch('https://formspree.io/f/mppqljea',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({name:name,document:doc,at:at})}).catch(function(){});
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'form-name=document-views&name='+encodeURIComponent(name)+'&at='+encodeURIComponent(at)+'&document='+encodeURIComponent(doc)}).catch(function(){});
+  }
+  if (sessionStorage.getItem(KEY) === '1') {
+    cover.remove();
+  } else {
+    document.getElementById('splashForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      var name = document.getElementById('splashName').value.trim();
+      if (!name) return;
+      dismiss(name);
+    });
+  }
+})();
+</script>
+<title>لؤي بابكر صديق</title>
+<meta name="description" content="لؤي بابكر صديق — مخرج تلفزيوني وسينمائي ومنتج منفّذ. اثنان وعشرون عاماً خلف الكاميرا: برامج حوارية، حفلات، وثائقيات وإعلانات.">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://luai-babiker.netlify.app/">
+<meta property="og:title" content="لؤي بابكر صديق — مخرج تلفزيوني وسينمائي">
+<meta property="og:description" content="اثنان وعشرون عاماً خلف الكاميرا: برامج حوارية، حفلات، وثائقيات وإعلانات — والخيط الواحد أن تُبنى الصورة حول فكرة.">
+<meta property="og:image" content="https://luai-babiker.netlify.app/assets/og-image.jpg">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="420">
+<meta property="og:locale" content="ar_AR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="لؤي بابكر صديق — مخرج تلفزيوني وسينمائي">
+<meta name="twitter:description" content="اثنان وعشرون عاماً خلف الكاميرا: برامج حوارية، حفلات، وثائقيات وإعلانات.">
+<meta name="twitter:image" content="https://luai-babiker.netlify.app/assets/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;800&family=Cairo:wght@300;400;600&family=Archivo:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+/* ──────────────────────────────────────────────────────────────
+   لؤي بابكر صديق — موقع مخرج تلفزيوني وسينمائي
+   التخطيط: شريط ثابت ← واجهة ← الأعمال ← لوحات المشاريع ← الرؤية ← الكواليس ← الكلاكيت
+   هوية واحدة مقصودة: كحلي عميق + ذهب دافئ. لغتان بمفتاح واحد.
+   ────────────────────────────────────────────────────────────── */
+:root{
+  color-scheme: dark;
+  --ink:#050D1A;            /* أرضية: كحلي عميق */
+  --ink-2:#081120;
+  --panel:#0F1521;
+  --panel-2:#17202F;
+  --gold:#E7AA51;           /* ذهب دافئ */
+  --gold-2:#F3CE97;
+  --bone:#E9EDF4;
+  --mute:#8E9BB0;
+  --line:rgba(231,170,81,.24);
+  --line-2:rgba(233,237,244,.10);
+  --f-ar:"Noto Kufi Arabic","Segoe UI",Tahoma,sans-serif;
+  --f-body:"Cairo","Segoe UI",Tahoma,sans-serif;
+  --f-lat:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --bar:74px;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ink); color:var(--bone);
+  font-family:var(--f-body); font-size:15px; line-height:1.75;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+img,video{max-width:100%; display:block}
+a{color:inherit}
+button{font:inherit; color:inherit; background:none; border:0; cursor:pointer}
+:focus-visible{outline:2px solid var(--gold); outline-offset:3px}
+::selection{background:rgba(231,170,81,.3)}
+
+/* ── اللغتان: نصّ عربي ونصّ إنجليزي، يظهر أحدهما ─────────────── */
+.l-en{display:none}
+body.en .l-ar{display:none}
+body.en .l-en{display:inline}
+body.en{font-family:var(--f-lat)}
+body.en .sec-h h2 em,body.en .pro h3 em,body.en .work .meta em,body.en .nav a i{display:none}
+body.en .nav a em{font-size:12px; letter-spacing:.1em; color:var(--bone); font-weight:500}
+body.en .sec-h h2,body.en .pro h3,body.en .reach h3{font-family:var(--f-lat); letter-spacing:.02em}
+body.en .work .meta b,body.en .shot .cap,body.en .tagline,body.en .sec-h p,body.en .reach p,body.en .say blockquote{font-family:var(--f-lat)}
+body.en .role b,body.en .cta,body.en .click .ar,body.en .subs a,body.en .docs-note,body.en .srow .v{font-family:var(--f-lat)}
+
+/* حبيبات الفيلم فوق كل شيء، بلا اعتراض للنقر */
+.grain{position:fixed; inset:0; pointer-events:none; z-index:60; opacity:.05; mix-blend-mode:overlay;
+  background-image:repeating-linear-gradient(0deg,#fff 0 1px,transparent 1px 2px),repeating-linear-gradient(90deg,#fff 0 1px,transparent 1px 3px)}
+
+/* ── الشريط العلوي ───────────────────────────────────────────── */
+.bar{position:fixed; inset-inline:0; top:0; z-index:50; display:flex; align-items:center; gap:clamp(12px,2.4vw,32px);
+  padding:10px clamp(14px,4vw,40px); padding-top:calc(10px + env(safe-area-inset-top,0px));
+  background:linear-gradient(180deg,rgba(4,10,20,.94),rgba(4,10,20,.55) 70%,transparent);
+  backdrop-filter:blur(8px)}
+.brand{display:flex; align-items:center; gap:10px; text-decoration:none; flex:0 0 auto}
+.brand svg{width:40px; height:40px; flex:0 0 auto}
+.brand b{display:block; font-family:var(--f-ar); font-weight:800; font-size:15px; letter-spacing:.01em; line-height:1.2}
+.brand span{display:block; font-family:var(--f-lat); font-size:9.5px; letter-spacing:.3em; color:var(--gold-2); text-transform:uppercase}
+.nav{display:flex; gap:clamp(10px,1.8vw,24px); margin-inline-start:auto; align-items:center}
+.nav a{text-decoration:none; text-align:center; padding:4px 2px; position:relative}
+.nav a i{display:block; font-family:var(--f-ar); font-size:13px; font-style:normal; font-weight:600}
+.nav a em{display:block; font-family:var(--f-lat); font-size:8.5px; font-style:normal; letter-spacing:.22em; color:var(--mute); text-transform:uppercase}
+.nav a::after{content:""; position:absolute; inset-inline:6px; bottom:-2px; height:1px; background:var(--gold); transform:scaleX(0); transition:transform .4s var(--ease)}
+.nav a:hover::after,.nav a.on::after{transform:scaleX(1)}
+.nav a.on i,body.en .nav a.on em{color:var(--gold-2)}
+.lang{flex:0 0 auto; border:1px solid var(--line); border-radius:999px; padding:8px 15px; font-family:var(--f-lat);
+  font-size:11px; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:var(--gold-2);
+  display:flex; align-items:center; gap:7px; transition:background .3s,border-color .3s,color .3s}
+.lang::before{content:""; width:14px; height:14px; border-radius:50%; border:1px solid currentColor;
+  background:linear-gradient(90deg,transparent 46%,currentColor 46% 54%,transparent 54%)}
+.lang:hover{background:var(--gold); border-color:var(--gold); color:#05101F}
+.reel-btn{flex:0 0 auto; display:flex; flex-direction:column; align-items:center; gap:1px;
+  border:1px solid var(--line); border-radius:999px; padding:7px 18px; transition:border-color .3s,background .3s}
+.reel-btn:hover{border-color:var(--gold); background:rgba(231,170,81,.08)}
+.reel-btn i{font-family:var(--f-ar); font-size:12.5px; font-style:normal; font-weight:600}
+.reel-btn em{font-family:var(--f-lat); font-size:8px; font-style:normal; letter-spacing:.24em; color:var(--gold-2); text-transform:uppercase}
+body.en .reel-btn i{display:none}
+body.en .reel-btn em{font-size:11px; color:var(--bone); letter-spacing:.18em}
+.menu-btn{display:none; width:40px; height:40px; border:1px solid var(--line); border-radius:8px; position:relative; flex:0 0 auto}
+.menu-btn span,.menu-btn span::before,.menu-btn span::after{position:absolute; left:50%; width:17px; height:1.5px; background:var(--bone); transform:translateX(-50%)}
+.menu-btn span{top:50%; margin-top:-1px}
+.menu-btn span::before{content:""; top:-6px; left:0; transform:none}
+.menu-btn span::after{content:""; top:6px; left:0; transform:none}
+
+/* ── الواجهة ─────────────────────────────────────────────────── */
+.hero{position:relative; min-height:clamp(540px,80vh,780px); display:grid; place-items:center;
+  padding:calc(var(--bar) + 40px) clamp(16px,5vw,40px) clamp(40px,7vh,80px); isolation:isolate; overflow:hidden}
+.hero-bg{position:absolute; inset:0; z-index:-2}
+/* خلفية الواجهة صورة صغيرة الأصل، فتُعامَل كخلفية خارج البؤرة لا كصورة تُقاس حدّتها */
+.hero-bg img{width:100%; height:100%; object-fit:cover; object-position:50% 42%;
+  filter:saturate(.62) contrast(1.08) brightness(.9) blur(3px); transform:scale(1.08)}
+.hero-bg::after{content:""; position:absolute; inset:0;
+  background:radial-gradient(120% 90% at 50% 40%,rgba(6,13,24,.35),rgba(6,13,24,.9) 72%,var(--ink) 100%)}
+.hero-card{width:min(760px,100%); text-align:center; padding:clamp(26px,5vw,52px) clamp(20px,5vw,54px);
+  background:rgba(6,13,24,.68); border:1px solid var(--line-2); backdrop-filter:blur(3px)}
+.hero-card .kicker{font-family:var(--f-mono); font-size:10.5px; letter-spacing:.42em; color:var(--gold); text-transform:uppercase; margin:0 0 18px}
+.name-lat{font-family:var(--f-lat); font-weight:700; letter-spacing:.14em; font-size:clamp(26px,5.2vw,52px); line-height:1.05; margin:0; text-wrap:balance}
+.name-ar{font-family:var(--f-ar); font-weight:800; font-size:clamp(26px,5.2vw,52px); line-height:1.25; margin:2px 0 0; color:var(--bone)}
+.role{display:flex; align-items:center; justify-content:center; gap:14px; margin:16px 0 0; flex-wrap:wrap}
+.role span{font-family:var(--f-lat); font-size:clamp(11px,1.5vw,14px); letter-spacing:.32em; color:var(--gold-2); text-transform:uppercase; white-space:nowrap}
+.role b{font-family:var(--f-ar); font-weight:600; font-size:clamp(13px,1.7vw,16px); color:var(--bone)}
+.rule{height:1px; background:linear-gradient(90deg,transparent,var(--line),transparent); margin:22px auto; max-width:380px}
+.tagline{font-family:var(--f-body); font-weight:300; font-size:clamp(14px,2vw,18px); color:var(--mute); margin:0 auto; max-width:46ch}
+.cta{display:inline-flex; align-items:center; gap:12px; margin-top:26px; padding:11px 26px; border:1px solid var(--gold);
+  border-radius:999px; font-family:var(--f-ar); font-weight:600; font-size:14px; text-decoration:none;
+  transition:background .35s var(--ease),color .35s}
+.cta .play{width:26px; height:26px; border-radius:50%; border:1px solid var(--gold); display:grid; place-items:center; flex:0 0 auto}
+.cta .play::before{content:""; border-style:solid; border-width:5px 0 5px 8px; border-color:transparent transparent transparent var(--gold); margin-inline-start:2px; transition:border-color .35s}
+.cta:hover{background:var(--gold); color:#05101F}
+.cta:hover .play{border-color:#05101F}
+.cta:hover .play::before{border-left-color:#05101F}
+.sig{margin:26px auto 0; width:clamp(120px,18vw,168px); opacity:.85; filter:brightness(1.7) sepia(.3) saturate(1.5) hue-rotate(-6deg)}
+
+/* ── هيكل الأقسام ────────────────────────────────────────────── */
+.sec{padding:clamp(52px,9vh,96px) clamp(16px,5vw,40px); max-width:1240px; margin:0 auto}
+.sec-h{display:flex; align-items:flex-end; justify-content:space-between; gap:20px; margin-bottom:clamp(24px,4vh,44px); flex-wrap:wrap}
+.sec-h h2{margin:0; font-family:var(--f-ar); font-weight:800; font-size:clamp(20px,3vw,30px); line-height:1.3; text-wrap:balance}
+.sec-h h2 em{display:block; font-family:var(--f-lat); font-style:normal; font-weight:500; font-size:clamp(9.5px,1.2vw,11px);
+  letter-spacing:.34em; color:var(--gold); text-transform:uppercase; margin-top:7px}
+.sec-h p{margin:0; color:var(--mute); font-size:13.5px; max-width:52ch}
+.sec-line{height:1px; background:linear-gradient(90deg,var(--line),transparent); margin-top:10px}
+
+/* ── شريط الأعمال ────────────────────────────────────────────── */
+.rail-wrap{position:relative}
+.rail{display:grid; grid-auto-flow:column; grid-auto-columns:clamp(210px,23vw,268px); gap:clamp(12px,1.6vw,20px);
+  overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth; padding-bottom:14px;
+  scrollbar-width:thin; scrollbar-color:var(--line) transparent}
+.rail::-webkit-scrollbar{height:6px}
+.rail::-webkit-scrollbar-thumb{background:var(--line); border-radius:3px}
+.work{scroll-snap-align:start; background:var(--panel); border:1px solid var(--line-2); display:flex; flex-direction:column;
+  text-align:start; transition:border-color .4s var(--ease),transform .4s var(--ease)}
+.work:hover{border-color:var(--line); transform:translateY(-3px)}
+.work .frame{position:relative; aspect-ratio:16/9; overflow:hidden; background:#000}
+.work .frame img,.work .frame video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+.work .frame video{opacity:0; transition:opacity .7s var(--ease)}
+.work .frame video.on{opacity:1}
+.work .frame::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 55%,rgba(5,13,26,.8))}
+.work .ic{position:absolute; z-index:2; inset-inline-end:10px; bottom:10px; width:30px; height:30px; border-radius:50%;
+  border:1px solid rgba(233,237,244,.55); display:grid; place-items:center; background:rgba(5,13,26,.5); transition:border-color .3s,background .3s}
+.work .ic::before{content:""; border-style:solid; border-width:5px 0 5px 8px; border-color:transparent transparent transparent var(--bone); margin-inline-start:2px}
+.work:hover .ic{border-color:var(--gold); background:rgba(231,170,81,.2)}
+.work .meta{padding:13px 14px 16px; display:flex; flex-direction:column; gap:4px; flex:1}
+.work .meta b{font-family:var(--f-ar); font-weight:600; font-size:14px; line-height:1.5}
+.work .meta em{font-family:var(--f-lat); font-style:normal; font-size:9px; letter-spacing:.2em; color:var(--gold-2); text-transform:uppercase}
+.work .meta small{color:var(--mute); font-size:11.5px; margin-top:auto; padding-top:6px}
+.arrow{position:absolute; top:calc(50% - 46px); z-index:3; width:40px; height:40px; border-radius:50%; background:rgba(6,13,24,.8);
+  border:1px solid var(--line); display:grid; place-items:center; transition:background .3s,border-color .3s,color .3s}
+.arrow:hover{background:var(--gold); border-color:var(--gold); color:#05101F}
+.arrow.prev{inset-inline-start:-6px}
+.arrow.next{inset-inline-end:-6px}
+.arrow svg{width:15px; height:15px}
+.dots{display:flex; gap:7px; justify-content:center; margin-top:16px}
+.dots button{width:22px; height:3px; background:var(--line-2); transition:background .3s}
+.dots button.on{background:var(--gold)}
+
+/* ── غرفة العرض: كل المقاطع في شبكة واحدة ───────────────────── */
+.sub-h{display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap; margin:clamp(40px,6vh,72px) 0 16px}
+.sub-h h3{margin:0; font-family:var(--f-ar); font-weight:800; font-size:clamp(16px,2.1vw,22px)}
+.sub-h h3 em{display:block; font-family:var(--f-lat); font-style:normal; font-weight:500; font-size:9.5px;
+  letter-spacing:.32em; color:var(--gold); text-transform:uppercase; margin-top:5px}
+body.en .sub-h h3 em{display:none}
+.sub-h .count{font-family:var(--f-mono); font-size:11px; letter-spacing:.14em; color:var(--mute)}
+.chips{display:flex; flex-wrap:wrap; gap:7px; margin:0 0 18px}
+.chip{border:1px solid var(--line-2); border-radius:999px; padding:6px 14px; font-family:var(--f-ar); font-size:12px; color:var(--mute);
+  transition:border-color .3s,color .3s,background .3s}
+body.en .chip{font-family:var(--f-lat)}
+.chip:hover{color:var(--bone); border-color:var(--line)}
+.chip.on{background:var(--gold); border-color:var(--gold); color:#05101F; font-weight:600}
+.clips{display:grid; grid-template-columns:repeat(auto-fill,minmax(186px,1fr)); gap:clamp(10px,1.4vw,16px)}
+.clips .work{scroll-snap-align:none}
+
+/* ── الوثائق: لوحة لكل مشروع ─────────────────────────────────── */
+.docs-wrap{position:relative; overflow:hidden;
+  background:radial-gradient(58% 46% at 6% 88%,rgba(231,170,81,.05),transparent 62%),
+             linear-gradient(180deg,transparent,rgba(15,21,33,.6) 10%,rgba(15,21,33,.6) 90%,transparent)}
+.docs-wrap::before{content:""; position:absolute; inset-inline-start:0; bottom:6%; width:min(320px,34%); height:min(300px,30%);
+  background-image:radial-gradient(rgba(231,170,81,.5) 1px,transparent 1px); background-size:9px 9px;
+  -webkit-mask-image:linear-gradient(120deg,#000,transparent 72%); mask-image:linear-gradient(120deg,#000,transparent 72%);
+  opacity:.35; pointer-events:none}
+.pros{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,430px),1fr)); gap:clamp(34px,5vw,64px); position:relative}
+.pro{display:flex; flex-direction:column; align-items:center; text-align:center; min-width:0}
+.pro h3{margin:0 0 16px; font-family:var(--f-ar); font-weight:800; font-size:clamp(18px,2.4vw,26px); line-height:1.35; text-wrap:balance}
+.pro h3 em{display:block; font-family:var(--f-lat); font-style:normal; font-weight:500; font-size:clamp(9px,1.1vw,10.5px);
+  letter-spacing:.32em; color:var(--gold); text-transform:uppercase; margin-top:6px}
+.plate{position:relative; width:100%; aspect-ratio:16/9; display:grid; place-items:center; padding:clamp(18px,4%,36px);
+  border:1px solid rgba(233,237,244,.22); background:radial-gradient(90% 80% at 50% 45%,#0C1424,#050D1A 78%);
+  text-decoration:none; cursor:pointer; transition:border-color .4s var(--ease)}
+.plate:hover,.plate:focus-visible{border-color:rgba(231,170,81,.55)}
+.gframe{position:relative; display:grid; place-items:center; padding:clamp(14px,3%,26px);
+  width:min(62%,300px); aspect-ratio:3/2; border:2px solid var(--gold); border-radius:22px;
+  box-shadow:inset 0 0 40px rgba(231,170,81,.07); transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.gframe::before{content:""; position:absolute; inset:-9px -13px; border:1px solid rgba(231,170,81,.4); border-radius:28px;
+  transition:inset .5s var(--ease),border-color .5s}
+.plate:hover .gframe,.plate:focus-visible .gframe{transform:translateY(-2px); box-shadow:inset 0 0 40px rgba(231,170,81,.1),0 16px 44px rgba(0,0,0,.45)}
+.plate:hover .gframe::before,.plate:focus-visible .gframe::before{inset:-13px -18px; border-color:var(--gold)}
+/* الشعار لا يُكبَّر أبداً فوق حجمه الأصلي — التكبير هو ما يفسد الجودة */
+.gframe img{max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain}
+.gframe .word{font-family:var(--f-ar); font-weight:800; font-size:clamp(18px,2.6vw,28px); line-height:1.35; color:var(--bone)}
+.gframe .word span{display:block; font-family:var(--f-lat); font-weight:500; font-size:10px; letter-spacing:.3em; color:var(--gold); margin-top:9px; text-transform:uppercase}
+.plate .zoom{position:absolute; inset-inline-end:12px; bottom:11px; display:flex; align-items:center; gap:6px;
+  font-family:var(--f-mono); font-size:9.5px; letter-spacing:.18em; color:var(--gold-2); text-transform:uppercase;
+  opacity:0; transform:translateY(5px); transition:opacity .4s var(--ease),transform .4s var(--ease)}
+.plate:hover .zoom,.plate:focus-visible .zoom{opacity:1; transform:translateY(0)}
+.beam{position:absolute; inset-inline:7%; bottom:-1px; height:2px; background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  box-shadow:0 0 30px 7px rgba(231,170,81,.3)}
+.click{width:min(88%,520px); margin-top:-1px; display:flex; flex-direction:column; align-items:center; gap:4px;
+  padding:15px 20px; border:1px solid rgba(231,170,81,.45); background:rgba(6,13,24,.55); text-decoration:none;
+  transition:background .35s var(--ease),color .3s,border-color .3s}
+.click .en-label{font-family:var(--f-lat); font-weight:500; font-size:clamp(16px,2.2vw,25px); letter-spacing:.2em;
+  text-decoration:underline; text-underline-offset:7px; text-decoration-thickness:1px}
+.click .ar{font-family:var(--f-ar); font-size:12.5px; color:var(--gold-2); transition:color .3s}
+.click:hover,.click:focus-visible{background:var(--gold); border-color:var(--gold); color:#05101F}
+.click:hover .ar,.click:focus-visible .ar{color:#05101F}
+.subs{display:flex; flex-wrap:wrap; justify-content:center; gap:7px; margin-top:14px}
+.subs a{font-family:var(--f-ar); font-size:12px; color:var(--mute); border:1px solid var(--line-2); border-radius:999px;
+  padding:5px 12px; text-decoration:none; transition:border-color .3s,color .3s}
+.subs a:hover{border-color:var(--gold); color:var(--gold-2)}
+.docs-note{margin-top:clamp(30px,5vh,52px); display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:10px 16px;
+  color:var(--mute); font-size:12.5px; text-align:center}
+.docs-note a{color:var(--gold-2)}
+
+/* ── الرؤية ──────────────────────────────────────────────────── */
+.vision{display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr); gap:clamp(18px,3vw,40px); align-items:stretch;
+  background:var(--panel); border:1px solid var(--line-2)}
+/* بورتريه استوديو مقصوص على أرضية اللوحة نفسها — يُعرض بمقاسه لا ممدوداً */
+.vision figure{margin:0; position:relative; min-height:260px; display:flex; align-items:flex-end; justify-content:center; overflow:hidden}
+.vision figure img{width:auto; max-width:100%; max-height:420px; height:auto; object-fit:contain}
+.vision figure::after{content:""; position:absolute; inset-inline:0; bottom:0; height:38%;
+  background:linear-gradient(180deg,transparent,var(--panel)); pointer-events:none}
+.vision .say{padding:clamp(26px,4vw,52px); display:flex; flex-direction:column; justify-content:center; gap:18px}
+.say blockquote{margin:0; font-family:var(--f-ar); font-weight:400; font-size:clamp(16px,2.3vw,23px); line-height:1.95; text-wrap:balance}
+.say blockquote::before{content:"”"; display:block; font-family:var(--f-lat); font-size:54px; line-height:.4; color:var(--gold); margin-bottom:16px}
+.say .by{font-family:var(--f-mono); font-size:11px; letter-spacing:.16em; color:var(--gold-2)}
+.say .dots{justify-content:flex-start; margin-top:4px}
+
+/* ── الكواليس: صور صغيرة الأصل، فتُعرض صغيرة داخل إطار ──────── */
+.bts{display:grid; grid-template-columns:repeat(auto-fill,minmax(146px,1fr)); gap:clamp(10px,1.4vw,16px)}
+.shot{position:relative; display:block; padding:7px; background:var(--panel); border:1px solid var(--line-2);
+  transition:border-color .4s var(--ease),transform .4s var(--ease)}
+.shot .in{position:relative; display:block; aspect-ratio:4/3; overflow:hidden; border:1px solid rgba(231,170,81,.2)}
+.shot img{width:100%; height:100%; object-fit:cover; transition:transform .9s var(--ease),filter .5s}
+.shot .cap{display:block; padding:8px 2px 2px; font-family:var(--f-ar); font-size:11px; line-height:1.6; color:var(--mute);
+  text-align:start; transition:color .3s}
+.shot .lens{position:absolute; inset-inline-end:13px; top:13px; width:26px; height:26px; border-radius:50%;
+  border:1px solid rgba(233,237,244,.5); background:rgba(5,13,26,.55); display:grid; place-items:center;
+  opacity:0; transform:scale(.85); transition:opacity .35s var(--ease),transform .35s var(--ease)}
+.shot .lens::before{content:""; width:9px; height:9px; border:1.5px solid var(--bone); border-radius:50%}
+.shot .lens::after{content:""; position:absolute; width:6px; height:1.5px; background:var(--bone); transform:rotate(45deg); inset-inline-end:5px; bottom:7px}
+.shot:hover,.shot:focus-visible{border-color:var(--line); transform:translateY(-2px)}
+.shot:hover .in,.shot:focus-visible .in{border-color:var(--gold)}
+.shot:hover img{transform:scale(1.04); filter:brightness(1.06)}
+.shot:hover .cap,.shot:focus-visible .cap{color:var(--gold-2)}
+.shot:hover .lens,.shot:focus-visible .lens{opacity:1; transform:scale(1)}
+
+/* ── الكلاكيت والتواصل ───────────────────────────────────────── */
+.contact{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(20px,3vw,46px); align-items:center}
+.slate{background:#070E1B; border:1px solid var(--line-2); padding:clamp(16px,2.4vw,26px)}
+.slate .clap{display:flex; gap:0; height:34px; margin-bottom:14px; transform-origin:0 100%; animation:clap 7s var(--ease) infinite}
+@keyframes clap{0%,88%,100%{transform:rotate(0)} 92%{transform:rotate(-13deg)} 96%{transform:rotate(0)}}
+.slate .clap i{flex:1; background:repeating-linear-gradient(72deg,#E9EDF4 0 16px,#070E1B 16px 32px); border:1px solid #1B2534}
+.srow{display:grid; grid-template-columns:92px 1fr; align-items:center; gap:10px; padding:9px 2px; border-bottom:1px solid var(--line-2)}
+.srow:last-child{border-bottom:0}
+.srow .k{font-family:var(--f-mono); font-size:10px; letter-spacing:.2em; color:var(--gold); text-transform:uppercase}
+.srow .v{font-family:var(--f-ar); font-size:13.5px; min-width:0; overflow-wrap:anywhere}
+.srow .v.mono{font-family:var(--f-mono); font-size:12.5px; direction:ltr; text-align:start; unicode-bidi:isolate}
+.cbtn{font-family:var(--f-ar); font-size:11px; color:var(--mute); border:1px solid var(--line-2); border-radius:999px; padding:3px 10px; transition:border-color .3s,color .3s}
+.cbtn:hover{border-color:var(--gold); color:var(--gold-2)}
+.cline{display:flex; align-items:center; gap:8px; flex-wrap:wrap}
+.reach h3{margin:0 0 6px; font-family:var(--f-ar); font-weight:800; font-size:clamp(18px,2.6vw,26px)}
+.reach p{margin:0 0 20px; color:var(--mute); max-width:46ch}
+.socials{display:flex; gap:9px; margin-top:20px; flex-wrap:wrap}
+.socials a{width:38px; height:38px; border:1px solid var(--line-2); border-radius:50%; display:grid; place-items:center; transition:border-color .3s,background .3s}
+.socials a:hover{border-color:var(--gold); background:rgba(231,170,81,.1)}
+.socials svg{width:16px; height:16px}
+
+footer{border-top:1px solid var(--line-2); padding:26px clamp(16px,5vw,40px) calc(30px + env(safe-area-inset-bottom,0px));
+  display:flex; flex-wrap:wrap; gap:10px 22px; align-items:center; justify-content:space-between; color:var(--mute); font-size:12px}
+footer .lat{font-family:var(--f-lat); letter-spacing:.2em; font-size:9.5px; text-transform:uppercase}
+
+/* ── طبقات العرض ─────────────────────────────────────────────── */
+.over{position:fixed; inset:0; z-index:70; display:none; place-items:center; padding:clamp(12px,3vw,40px); background:rgba(3,8,16,.95)}
+.over.open{display:grid}
+.over video{max-width:min(1100px,100%); max-height:78vh; width:auto; border:1px solid var(--line-2); background:#000}
+/* الصورة في الإطار لا تتجاوز مقاسها الأصلي — يضبطه الكود عند الفتح */
+.over .shell{padding:10px; border:1px solid var(--line); background:var(--panel); display:inline-block; max-width:100%}
+.over img{max-width:100%; max-height:72vh; width:auto; display:block; border:1px solid rgba(231,170,81,.25); background:#000}
+.over .cap{margin-top:14px; text-align:center; font-family:var(--f-ar); font-size:14px; color:var(--bone)}
+.over .cap em{display:block; font-family:var(--f-lat); font-style:normal; font-size:9.5px; letter-spacing:.24em; color:var(--gold-2); margin-top:5px; text-transform:uppercase}
+.x{position:absolute; top:calc(16px + env(safe-area-inset-top,0px)); inset-inline-end:16px; width:42px; height:42px; border:1px solid var(--line);
+  border-radius:50%; display:grid; place-items:center; background:rgba(6,13,24,.85); font-size:20px; line-height:1}
+.x:hover{border-color:var(--gold); color:var(--gold)}
+.toast{position:fixed; z-index:80; bottom:24px; inset-inline-start:50%; transform:translateX(50%) translateY(20px);
+  background:var(--gold); color:#05101F; font-family:var(--f-ar); font-weight:600; font-size:13px; padding:9px 20px; border-radius:999px;
+  opacity:0; pointer-events:none; transition:opacity .3s,transform .3s var(--ease)}
+.toast.on{opacity:1; transform:translateX(50%) translateY(0)}
+
+@media (max-width:1000px){
+  .nav{gap:10px}
+  .nav a em{display:none}
+  body.en .nav a em{display:block}
+  body.en .nav a i{display:none}
+}
+@media (max-width:900px){
+  .vision,.contact{grid-template-columns:1fr}
+  .vision figure{min-height:220px}
+}
+@media (max-width:820px){
+  .nav,.reel-btn{display:none}
+  .menu-btn{display:block}
+  .lang{margin-inline-start:auto; padding:7px 12px}
+  .bar.open{flex-wrap:wrap}
+  .bar.open .nav{display:flex; flex-wrap:wrap; order:3; width:100%; justify-content:flex-start; gap:14px 18px; margin:10px 0 4px}
+  .bar.open .nav a em{display:block}
+  .bar.open .reel-btn{display:flex; order:4; margin-bottom:8px}
+  .hero-card{padding:24px 18px}
+  .role{flex-direction:column; gap:4px}
+  .arrow{display:none}
+  .click{width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms !important; transition-duration:.01ms !important}
+  .rail{scroll-behavior:auto}
+}
+</style>
+
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ═══ الشريط العلوي ═══ -->
+<header class="bar" id="bar">
+  <a class="brand" href="#home">
+    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <circle cx="24" cy="24" r="21" stroke="#E7AA51" stroke-width="1.2"/>
+      <circle cx="24" cy="24" r="13.5" stroke="#E7AA51" stroke-width=".8" opacity=".55"/>
+      <path d="M24 10.5 34 24 24 37.5 14 24z" stroke="#E7AA51" stroke-width=".8" opacity=".5"/>
+      <path d="M24 10.5V24h13.5M24 37.5V24H10.5" stroke="#E7AA51" stroke-width=".8" opacity=".5"/>
+      <circle cx="24" cy="24" r="4.4" fill="#E7AA51"/>
+    </svg>
+    <span class="t">
+      <b>لؤي بابكر صديق</b>
+      <span>Luai Babiker Siddig</span>
+    </span>
+  </a>
+  <nav class="nav" id="nav">
+    <a href="#home" class="on"><i>الرئيسية</i><em>Home</em></a>
+    <a href="#works"><i>الأعمال المختارة</i><em>Selected Works</em></a>
+    <a href="#docs"><i>الوثائق</i><em>Documents</em></a>
+    <a href="#vision"><i>الرؤية الإخراجية</i><em>Statement</em></a>
+    <a href="#bts"><i>كواليس التصوير</i><em>Behind the Scenes</em></a>
+    <a href="#contact"><i>تواصل</i><em>Contact</em></a>
+  </nav>
+  <button class="reel-btn" type="button" data-reel><i>مشاهدة بكرة الأعمال</i><em>Play Showreel</em></button>
+  <button class="lang" id="lang" type="button" title="English / العربية"><span class="l-ar">English</span><span class="l-en">عربي</span></button>
+  <button class="menu-btn" type="button" id="menuBtn" aria-label="القائمة" aria-expanded="false"><span></span></button>
+</header>
+
+<!-- ═══ الواجهة ═══ -->
+<section class="hero" id="home">
+  <div class="hero-bg"><img src="assets/me-rig.jpg" alt="لؤي بابكر صديق خلف الكاميرا في موقع تصوير"></div>
+  <div class="hero-card">
+    <p class="kicker">Film &amp; Television Director</p>
+    <h1 class="name-lat">LUAI BABIKER SIDDIG</h1>
+    <p class="name-ar">لؤي بابكر صديق</p>
+    <div class="role">
+      <b><span class="l-ar">مخرج تلفزيوني وسينمائي · منتج منفّذ</span><span class="l-en">Film &amp; Television Director · Executive Producer</span></b>
+      <span>Abu Dhabi · twofour54</span>
+    </div>
+    <div class="rule"></div>
+    <p class="tagline">
+      <span class="l-ar">اثنان وعشرون عاماً خلف الكاميرا: برامج حوارية وحفلات ووثائقيات وإعلانات — والخيط الواحد بينها أن تُبنى الصورة حول فكرة.</span>
+      <span class="l-en">Twenty-two years behind the camera — talk shows, concerts, documentaries and commercials. One thread runs through all of it: the image is built around an idea.</span>
+    </p>
+    <button class="cta" type="button" data-reel>
+      <span class="play" aria-hidden="true"></span>
+      <span class="l-ar">شاهد العرض السينمائي الكامل (SHOWREEL)</span><span class="l-en">Watch the full showreel</span>
+    </button>
+    <img class="sig" src="assets/signature.png" alt="توقيع لؤي بابكر صديق">
+  </div>
+</section>
+
+<!-- ═══ الأعمال المختارة ═══ -->
+<section class="sec" id="works">
+  <div class="sec-h">
+    <h2><span class="l-ar">الأعمال الأخيرة</span><span class="l-en">Recent Works</span><em>Recent Works</em></h2>
+    <p>
+      <span class="l-ar">من حلقات البرامج إلى الحفلات والإعلانات — كل بطاقة تعرض مقطعاً حقيقياً من العمل، واضغطها لتشاهده بالصوت.</span>
+      <span class="l-en">From episodes to concerts and commercials — every card plays a real clip from the work. Click one to watch it with sound.</span>
+    </p>
+  </div>
+  <div class="sec-line"></div>
+  <div class="rail-wrap" style="margin-top:26px">
+    <button class="arrow prev" type="button" aria-label="السابق"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <button class="arrow next" type="button" aria-label="التالي"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+    <div class="rail" id="rail"></div>
+  </div>
+  <div class="dots" id="dots"></div>
+
+  <div class="sub-h">
+    <h3><span class="l-ar">غرفة العرض — كل المقاطع</span><span class="l-en">Screening Room — every clip</span><em>Screening Room</em></h3>
+    <span class="count" id="clipCount"></span>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="clips" id="clips"></div>
+</section>
+
+<!-- ═══ الوثائق والفورمات ═══ -->
+<div class="docs-wrap">
+<section class="sec" id="docs">
+  <div class="sec-h">
+    <h2><span class="l-ar">الوثائق والفورمات</span><span class="l-en">Documents &amp; Formats</span><em>Documents &amp; Formats</em></h2>
+    <p>
+      <span class="l-ar">كل مشروع في لوحته، وتحته زر يفتح وثيقته مباشرة — ثم بقية ملفاته: الأدلة والعروض والعقود.</span>
+      <span class="l-en">Every project on its own plate, with a button that opens its document — then the rest of its files: guides, decks and contracts.</span>
+    </p>
+  </div>
+  <div class="sec-line" style="margin-bottom:clamp(30px,5vh,52px)"></div>
+  <div class="pros" id="pros"></div>
+  <p class="docs-note">
+    <span class="l-ar">كل وثيقة تُفتح في نافذة جديدة. وهي خاصة حتى تشاركها أنت من زر المشاركة داخلها.</span>
+    <span class="l-en">Each document opens in a new tab. They stay private until shared from the Share menu inside each one.</span>
+    <a href="https://claude.ai/artifact/NwPtnyRHNybmdgh7N9Dqey" target="_blank" rel="noopener"><span class="l-ar">مركز الروابط الكامل ↗</span><span class="l-en">Full link index ↗</span></a>
+  </p>
+</section>
+</div>
+
+<!-- ═══ الرؤية الإخراجية ═══ -->
+<section class="sec" id="vision">
+  <div class="sec-h">
+    <h2><span class="l-ar">الرؤية الإخراجية</span><span class="l-en">Director’s Statement</span><em>Director’s Statement</em></h2>
+  </div>
+  <div class="sec-line" style="margin-bottom:26px"></div>
+  <div class="vision">
+    <figure><img src="assets/me-studio.jpg" alt="بورتريه لؤي بابكر صديق"></figure>
+    <div class="say">
+      <blockquote id="vq"></blockquote>
+      <div class="by" id="vby"></div>
+      <div class="dots" id="vdots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ الكواليس ═══ -->
+<section class="sec" id="bts">
+  <div class="sec-h">
+    <h2><span class="l-ar">كواليس التصوير</span><span class="l-en">Behind the Scenes</span><em>Behind the Scenes</em></h2>
+    <p>
+      <span class="l-ar">من غرفة التحكم إلى المواقع الخارجية — صور من مواقع عمل حقيقية. اضغط أي صورة لتراها بمقاسها.</span>
+      <span class="l-en">From the gallery to location — photographs from real shoots. Click any frame to see it at full size.</span>
+    </p>
+  </div>
+  <div class="sec-line" style="margin-bottom:26px"></div>
+  <div class="bts" id="btsGrid"></div>
+</section>
+
+<!-- ═══ الكلاكيت والتواصل ═══ -->
+<section class="sec" id="contact">
+  <div class="sec-h">
+    <h2><span class="l-ar">لوحة تصوير</span><span class="l-en">Contact</span><em>Contact</em></h2>
+  </div>
+  <div class="sec-line" style="margin-bottom:26px"></div>
+  <div class="contact">
+    <div class="slate">
+      <div class="clap" aria-hidden="true"><i></i></div>
+      <div class="srow"><span class="k">Project</span><span class="v"><span class="l-ar">مشروعك القادم</span><span class="l-en">Your next project</span></span></div>
+      <div class="srow"><span class="k">Director</span><span class="v"><span class="l-ar">لؤي بابكر صديق</span><span class="l-en">Luai Babiker Siddig</span></span></div>
+      <div class="srow"><span class="k">Studio</span><span class="v"><span class="l-ar">twofour54 أبوظبي · مخرج مرخَّص</span><span class="l-en">twofour54 Abu Dhabi · licensed director</span></span></div>
+      <div class="srow"><span class="k">Email</span><span class="cline"><span class="v mono" id="mail">luaisiddig@gmail.com</span><button class="cbtn" type="button" data-copy="mail"><span class="l-ar">نسخ</span><span class="l-en">Copy</span></button></span></div>
+      <div class="srow"><span class="k">Phone</span><span class="cline"><span class="v mono" id="tel">00971 58 541 0334</span><button class="cbtn" type="button" data-copy="tel"><span class="l-ar">نسخ</span><span class="l-en">Copy</span></button></span></div>
+      <div class="srow"><span class="k">Date</span><span class="v mono">2026</span></div>
+    </div>
+    <div class="reach">
+      <h3><span class="l-ar">الكرسي جاهز — والكاميرا كذلك</span><span class="l-en">The chair is ready — and so is the camera</span></h3>
+      <p>
+        <span class="l-ar">للإخراج، أو الإنتاج المنفّذ، أو تطوير فورمات جديد من الفكرة إلى الحلقة الأولى. أرسل سطراً واحداً عمّا تريد صنعه، ويصلك الرد بخطة أولى.</span>
+        <span class="l-en">For directing, executive production, or developing a new format from the idea to the first episode. Send one line about what you want to make, and you get a first plan back.</span>
+      </p>
+      <div class="cline" style="gap:12px">
+        <a class="cta" href="https://luaisiddig.my.canva.site/mr-osman" target="_blank" rel="noopener" style="margin-top:0">
+          <span class="l-ar">معرض الأعمال على كانفا ↗</span><span class="l-en">Portfolio on Canva ↗</span>
+        </a>
+      </div>
+      <div class="socials">
+        <a href="https://www.youtube.com/@luaisiddig" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.8-.5-5.6a3 3 0 0 0-2.1-2.1C18.6 3.8 12 3.8 12 3.8s-6.6 0-8.4.5A3 3 0 0 0 1.5 6.4C1 8.2 1 12 1 12s0 3.8.5 5.6a3 3 0 0 0 2.1 2.1c1.8.5 8.4.5 8.4.5s6.6 0 8.4-.5a3 3 0 0 0 2.1-2.1C23 15.8 23 12 23 12zM9.8 15.5v-7l6.2 3.5-6.2 3.5z"/></svg></a>
+        <a href="https://claude.ai/artifact/NwPtnyRHNybmdgh7N9Dqey" target="_blank" rel="noopener" aria-label="Link index"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span><span class="l-ar">© 2026 لؤي بابكر صديق — جميع الحقوق محفوظة</span><span class="l-en">© 2026 Luai Babiker Siddig — all rights reserved</span></span>
+  <span class="lat">Luai Babiker Siddig · Film &amp; Television Director</span>
+</footer>
+
+<!-- ═══ طبقة العرض ═══ -->
+<div class="over" id="cine" role="dialog" aria-modal="true" aria-label="Video player">
+  <button class="x" type="button" data-close aria-label="إغلاق">×</button>
+  <div>
+    <video id="cineV" controls playsinline preload="none"></video>
+    <div class="cap" id="cineCap"></div>
+  </div>
+</div>
+<div class="over" id="lb" role="dialog" aria-modal="true" aria-label="Photo">
+  <button class="x" type="button" data-close aria-label="إغلاق">×</button>
+  <div>
+    <span class="shell"><img id="lbImg" alt=""></span>
+    <div class="cap" id="lbCap"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+"use strict";
+var $ = function(s,r){ return (r||document).querySelector(s); };
+var $$ = function(s,r){ return [].slice.call((r||document).querySelectorAll(s)); };
+var bi = function(ar,en){ return '<span class="l-ar">'+ar+'</span><span class="l-en">'+en+'</span>'; };
+
+/* ── اللغة ──────────────────────────────────────────────────── */
+var lang = "ar";
+try { lang = localStorage.getItem("luai-lang") || "ar"; } catch(e){}
+function setLang(l){
+  lang = (l === "en") ? "en" : "ar";
+  document.body.classList.toggle("en", lang === "en");
+  try { localStorage.setItem("luai-lang", lang); } catch(e){}
+  showSay(vi);
+}
+
+/* ── الأعمال: كل بطاقة مقطع حقيقي ───────────────────────────── */
+var WORKS = [
+  {v:"v-ahmoudi",   t:"مع أحمودي",               e:"Ma’ Ahmoudi",        s:"برنامج موسيقي · السودان 24",      se:"Music programme · Sudania 24"},
+  {v:"v-hekaya",    t:"كل الحكاية",              e:"Kul Al-Hekaya",      s:"عيد الفطر · مع نانسي عجاج",       se:"Eid special · with Nancy Ajaj"},
+  {v:"v-hadarat",   t:"حضرات السادة المشاهدين",   e:"Ladies & Gentlemen", s:"النيل الأزرق · مع محمد عثمان",    se:"Blue Nile TV · with Mohamed Osman"},
+  {v:"v-fikr",      t:"فكّر أنت في الخرطوم",      e:"Think, Khartoum",    s:"مسابقات · تقديم الطيب عبد الماجد", se:"Game show · hosted by Al-Tayeb Abdel Majid"},
+  {v:"v-leader",    t:"القائد المستقبلي",         e:"The Future Leader",  s:"الموسم الأول",                    se:"Season one"},
+  {v:"v-social",    t:"باك لايت",                e:"Backlight",          s:"تدقيق الأخبار الزائفة",           se:"Fact-checking fake news"},
+  {v:"v-gakh",      t:"رائحة القهوة",            e:"The Scent of Coffee",s:"مع الشاعر هشام الجخ",             se:"With the poet Hisham El Gakh"},
+  {v:"v-orchestra", t:"الفرقة الموسيقية",         e:"The Orchestra",      s:"تلفزيون السودان",                 se:"Sudan TV"},
+  {v:"v-stagelive", t:"الحفل على الهواء",         e:"The Concert, Live",  s:"مسرح رمضان · السودان 24",         se:"Ramadan stage · Sudania 24"},
+  {v:"v-nile",      t:"حوار على النيل",          e:"A Talk on the Nile", s:"برنامج حواري",                    se:"Talk show"},
+  {v:"v-ambabiker", t:"عم بابكر",                e:"Am Babiker",         s:"بورتريه لفنان تشكيلي",            se:"Portrait of a painter"},
+  {v:"v-chair",     t:"الكرسي جاهز",             e:"The Chair Is Ready", s:"برومو · سبيك نيشن",               se:"Promo · Speak Nation"},
+  {v:"v-jojo",      t:"JOJO — Crafted with Love",e:"Brand Film",         s:"فيلم إعلاني",                     se:"Brand film"},
+  {v:"v-sweetalia", t:"Sweetalia",               e:"TV Commercial",      s:"إعلان تلفزيوني",                  se:"Television commercial"},
+  {v:"v-shots",     t:"مجموعة لقطات",            e:"Compilation",        s:"تصوير جوي وصحراء ومدن",           se:"Aerials, desert and cities"}
+];
+var REEL = {v:"v-creative", t:"ملف أعمالي — برومو 2026", e:"Showreel 2026"};
+
+var rail = $("#rail");
+rail.innerHTML = WORKS.map(function(w){
+  return '<button class="work" type="button" data-v="'+w.v+'" data-t="'+w.t+'" data-te="'+w.e+'" data-e="'+w.e+'">'+
+    '<span class="frame"><img src="assets/'+w.v+'.jpg" alt="" loading="lazy"><span class="ic" aria-hidden="true"></span></span>'+
+    '<span class="meta"><b>'+bi(w.t, w.e)+'</b><em>'+w.e+'</em><small>'+bi(w.s, w.se)+'</small></span>'+
+  '</button>';
+}).join("");
+
+/* الصورة الثابتة تتحول إلى مقطع يتحرك حين تدخل الشاشة — الموقع مبني على الفيديو */
+var calm = (navigator.connection && navigator.connection.saveData) ||
+           (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
+var io = null;
+if (!calm && "IntersectionObserver" in window){
+  io = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      var b = e.target, f = $(".frame", b), v = $("video", f);
+      if (e.isIntersecting){
+        if (!v){
+          v = document.createElement("video");
+          v.muted = true; v.loop = true; v.playsInline = true; v.preload = "none";
+          v.setAttribute("muted",""); v.setAttribute("playsinline",""); v.setAttribute("disablepictureinpicture","");
+          v.addEventListener("playing", function(){ v.classList.add("on"); });
+          v.src = "assets/" + b.getAttribute("data-v") + ".mp4";
+          f.insertBefore(v, f.firstChild);
+        }
+        var p = v.play(); if (p && p.catch) p.catch(function(){});
+      } else if (v && !v.paused) v.pause();
+    });
+  }, {rootMargin:"120px"});
+}
+function mountVideo(list){ if (io) list.forEach(function(b){ io.observe(b); }); }
+mountVideo($$(".work", rail));
+
+/* أسهم ونقاط الشريط */
+var dots = $("#dots");
+function pageW(){ return rail.clientWidth * 0.9; }
+function pages(){ return Math.max(1, Math.ceil(rail.scrollWidth / rail.clientWidth)); }
+function buildDots(){
+  dots.innerHTML = "";
+  for (var i = 0; i < pages(); i++){
+    var b = document.createElement("button");
+    b.type = "button"; b.setAttribute("aria-label", "Page " + (i+1));
+    (function(ix){ b.addEventListener("click", function(){ rail.scrollTo({left: ix * rail.clientWidth, behavior:"smooth"}); }); })(i);
+    dots.appendChild(b);
+  }
+  markDots();
+}
+function markDots(){
+  var i = Math.round(Math.abs(rail.scrollLeft) / rail.clientWidth);
+  $$("button", dots).forEach(function(d, ix){ d.classList.toggle("on", ix === i); });
+}
+$(".arrow.prev").addEventListener("click", function(){ rail.scrollBy({left: -pageW(), behavior:"smooth"}); });
+$(".arrow.next").addEventListener("click", function(){ rail.scrollBy({left: pageW(), behavior:"smooth"}); });
+rail.addEventListener("scroll", markDots, {passive:true});
+addEventListener("resize", buildDots);
+buildDots();
+
+/* ── غرفة العرض: الواحد والخمسون مقطعاً كلها ────────────────── */
+var CLIPS = [
+  {v:"v-ahmoudi",   c:"tv",   t:"مع أحمودي",                  e:"Ma’ Ahmoudi"},
+  {v:"v-hekaya",    c:"tv",   t:"كل الحكاية",                 e:"Kul Al-Hekaya"},
+  {v:"v-hadarat",   c:"tv",   t:"حضرات السادة المشاهدين",      e:"Ladies & Gentlemen"},
+  {v:"v-fikr",      c:"tv",   t:"فكّر أنت في الخرطوم",         e:"Think, Khartoum"},
+  {v:"v-leader",    c:"pod",  t:"القائد المستقبلي",            e:"The Future Leader"},
+  {v:"v-social",    c:"tv",   t:"باك لايت",                   e:"Backlight"},
+  {v:"v-gakh",      c:"tv",   t:"رائحة القهوة — هشام الجخ",    e:"The Scent of Coffee"},
+  {v:"v-nile",      c:"tv",   t:"حوار على النيل",             e:"A Talk on the Nile"},
+  {v:"v-turban",    c:"tv",   t:"حوار مع ضيف",                e:"A Guest Interview"},
+  {v:"v-saadeldin", c:"tv",   t:"حلقة حوارية — النيل الأزرق",  e:"Talk Episode — Blue Nile"},
+  {v:"v-bnc2",      c:"tv",   t:"برنامج حواري",               e:"Talk Programme"},
+  {v:"v-livingset", c:"tv",   t:"ديكور برنامج حواري",          e:"Talk-Show Set"},
+  {v:"v-girl",      c:"tv",   t:"برنامج للأطفال",             e:"Children’s Programme"},
+  {v:"v-plant",     c:"tv",   t:"مقدمة برنامج",               e:"Programme Opener"},
+  {v:"v-coffee25",  c:"tv",   t:"رائحة القهوة — موسم 2025",    e:"The Scent of Coffee — 2025"},
+
+  {v:"v-stagelive", c:"mus",  t:"الحفل على الهواء",            e:"The Concert, Live"},
+  {v:"v-orchestra", c:"mus",  t:"الفرقة الموسيقية",            e:"The Orchestra"},
+  {v:"v-singer",    c:"mus",  t:"مطرب على مسرح رمضان",         e:"Singer on the Ramadan Stage"},
+  {v:"v-violin",    c:"mus",  t:"الوتريات",                   e:"The Strings"},
+  {v:"v-band",      c:"mus",  t:"العازفون",                   e:"The Players"},
+  {v:"v-stagedark", c:"mus",  t:"إضاءة المسرح",               e:"Stage Lighting"},
+  {v:"v-stagewarm", c:"mus",  t:"لقطة واسعة للمسرح",           e:"Wide on the Stage"},
+  {v:"v-theatre",   c:"mus",  t:"المسرح والجمهور",            e:"The Theatre and Its Audience"},
+
+  {v:"v-ambabiker", c:"doc",  t:"عم بابكر",                   e:"Am Babiker"},
+  {v:"v-desert",    c:"doc",  t:"تصوير جوي — الصحراء",         e:"Aerial — The Desert"},
+  {v:"v-shots",     c:"doc",  t:"مجموعة لقطات",               e:"Compilation"},
+  {v:"v-window",    c:"doc",  t:"مشهد ليلي",                  e:"Night Exterior"},
+  {v:"v-bts",       c:"doc",  t:"كواليس تصوير",               e:"Behind the Scenes"},
+  {v:"v-sharjah1",  c:"doc",  t:"العمارة الإسلامية — الضوء",   e:"Islamic Architecture — Light"},
+  {v:"v-sharjah2",  c:"doc",  t:"العمارة الإسلامية — القوس",   e:"Islamic Architecture — The Arch"},
+  {v:"v-sharjah3",  c:"doc",  t:"العمارة الإسلامية — اللون",   e:"Islamic Architecture — Colour"},
+  {v:"v-uaearch",   c:"doc",  t:"العمارة الإسلامية في الإمارات", e:"Islamic Architecture — UAE"},
+
+  {v:"v-podchair",  c:"pod",  t:"بودكاست — الجلسة الطويلة",    e:"Podcast — The Long Session"},
+  {v:"v-podtee",    c:"pod",  t:"بودكاست — حلقة تسجيل",        e:"Podcast — Recording"},
+
+  {v:"v-sweetalia", c:"ad",   t:"Sweetalia — إعلان تلفزيوني",  e:"Sweetalia — TV Commercial"},
+  {v:"v-jojo",      c:"ad",   t:"JOJO — Crafted with Love",   e:"JOJO — Crafted with Love"},
+  {v:"v-shoes",     c:"ad",   t:"إعلان منتج — دبي",            e:"Product Commercial — Dubai"},
+  {v:"v-delta",     c:"ad",   t:"إعلانات لعلامات تجارية",      e:"Brand Commercials"},
+  {v:"v-chair",     c:"ad",   t:"الكرسي جاهز",                e:"The Chair Is Ready"},
+
+  {v:"v-s24id",     c:"id",   t:"السودان 24 — هوية القناة",    e:"Sudania 24 — Channel Identity"},
+  {v:"v-s24ident",  c:"id",   t:"فاصل هوية القناة",           e:"Channel Ident"},
+  {v:"v-s24promo",  c:"id",   t:"برومو القناة",               e:"Channel Promo"},
+  {v:"v-s24reel",   c:"id",   t:"حزمة الشاشة",                e:"On-Air Package"},
+  {v:"v-bnpresent", c:"id",   t:"قناة النيل الأزرق تقدم",      e:"Blue Nile TV Presents"},
+  {v:"v-badea",     c:"id",   t:"المصرف العربي للتنمية",       e:"BADEA"},
+  {v:"v-imatong",   c:"id",   t:"إيماتونغ — خطة قناة",         e:"IMATONG — Channel Plan"},
+  {v:"v-calli",     c:"id",   t:"شارة بخط عربي متحرك",         e:"Arabic Calligraphy Title"},
+  {v:"v-blue",      c:"id",   t:"فاصل بصري",                  e:"Visual Interlude"},
+
+  {v:"v-creative",  c:"me",   t:"برومو 2026",                 e:"Showreel 2026"},
+  {v:"v-portfolio", c:"me",   t:"ملف أعمالي بالفيديو",         e:"Video Portfolio"}
+];
+var CATS = [
+  {k:"all", ar:"الكل",            en:"All"},
+  {k:"tv",  ar:"برامج تلفزيونية",  en:"Television"},
+  {k:"mus", ar:"حفلات وموسيقى",    en:"Concerts"},
+  {k:"doc", ar:"وثائقي وتصوير",    en:"Documentary"},
+  {k:"pod", ar:"بودكاست",         en:"Podcast"},
+  {k:"ad",  ar:"إعلانات",         en:"Commercials"},
+  {k:"id",  ar:"هويات وشارات",     en:"Idents"},
+  {k:"me",  ar:"ملف أعمالي",       en:"Showreel"}
+];
+var cat = "all", chips = $("#chips"), clips = $("#clips"), clipCount = $("#clipCount");
+chips.innerHTML = CATS.map(function(c){
+  return '<button class="chip'+(c.k === cat ? " on" : "")+'" type="button" data-c="'+c.k+'">'+bi(c.ar, c.en)+'</button>';
+}).join("");
+function paintClips(){
+  var list = CLIPS.filter(function(c){ return cat === "all" || c.c === cat; });
+  clips.innerHTML = list.map(function(c){
+    return '<button class="work" type="button" data-v="'+c.v+'" data-t="'+c.t+'" data-te="'+c.e+'" data-e="'+c.e+'">'+
+      '<span class="frame"><img src="assets/'+c.v+'.jpg" alt="" loading="lazy"><span class="ic" aria-hidden="true"></span></span>'+
+      '<span class="meta"><b>'+bi(c.t, c.e)+'</b></span>'+
+    '</button>';
+  }).join("");
+  clipCount.textContent = list.length + " / " + CLIPS.length;
+  mountVideo($$(".work", clips));
+}
+chips.addEventListener("click", function(e){
+  var b = e.target.closest(".chip"); if (!b) return;
+  cat = b.getAttribute("data-c");
+  $$(".chip", chips).forEach(function(c){ c.classList.toggle("on", c === b); });
+  paintClips();
+});
+paintClips();
+
+/* ── الوثائق: مشروع واحد في كل لوحة، وتحته روابطه كلها ─────── */
+var A = "https://claude.ai/artifact/";
+var PROJECTS = [
+  {t:"يوني ليغ", e:"UNI League", img:"pl-unileague", alt:"UNI League",
+   go:{u:A+"MiQvR8kAvhi1PQbZiT942S", ar:"افتح وثيقة الاستثمار والرعاية", en:"Investment &amp; sponsorship document"},
+   subs:[
+     {t:"العرض المختصر", te:"Short deck", u:A+"P4zefzfb4b62oSi2aJ9sDo"},
+     {t:"عرض الممولين", te:"Funder deck", u:A+"LUPiDXvw6tydkPwf8JGofZ"},
+     {t:"عقد الإنتاج", te:"Production contract", u:A+"TPsmPh8Adv9WTTEtRjtAXP"},
+     {t:"النسخة السعودية", te:"Saudi edition", u:A+"6Be5tdApiiDtSktW6PhgfL"},
+     {t:"نسخة السودان", te:"Sudan edition", u:A+"J8jnRSG7NecRrS5bDtkTyw"},
+     {t:"الهوية على الهواء", te:"On-air identity", u:A+"LhZsX6jfjfdrD8vZcjGf1m"},
+     {t:"دليل الهوية", te:"Logo guide", u:A+"T6H7K6cbspXEMz6ArXDhcq"},
+     {t:"الكابشنات", te:"On-air captions", u:A+"6R8fg45pV4u69RJZsvpeG7"},
+     {t:"شريط المواجهة", te:"Face-off bar", u:A+"Hyg3Mjzd4VzXPLMwvWnjh4"},
+     {t:"الافتتاحية", te:"Logo sting", u:A+"XDs7X6cyEUcihH8grRwgE8"}
+   ]},
+  {t:"صدى", e:"Sada Production", img:"lg-sada", alt:"Sada",
+   go:{u:A+"Hfi2jyrGRWUT3i8fGjmicS", ar:"افتح وثيقة الاستثمار", en:"Investment document"},
+   subs:[{t:"إقرار السرية", te:"NDA", u:A+"QkUB5aeGtjpvqEWCnEy4NC"}]},
+  {t:"بالدار سهرانين", e:"Baldar Sahraneen", img:"lg-baldar", alt:"Baldar Sahraneen",
+   go:{u:A+"FfEo7Fq1PgTBg5M5MEXCz4", ar:"افتح ملف الإنتاج", en:"Production file"}, subs:[]},
+  {t:"صِلَة", e:"Sila", img:"pl-sila", alt:"Sila",
+   go:{u:A+"Ewen5q8o8LW3cNUytQwGM5", ar:"افتح وثيقة الفورمات", en:"Format document"},
+   subs:[{t:"دليل الهوية", te:"Logo guide", u:A+"9uTuXGJwSNovVXcQRUQeXN"}]},
+  {t:"أَثَر", e:"Athar", img:"pl-athar", alt:"Athar",
+   go:{u:A+"LvhfiPtt2ZZvR5oHTKhB2N", ar:"افتح «الأمانُ إنسان»", en:"“Safety Is a Person”"},
+   subs:[
+     {t:"أنا الآن — البوابات", te:"I Am Now — gates", u:A+"1LCFCd4zgh3K1mPM8USoZQ"},
+     {t:"أنا الآن — الدوائر", te:"I Am Now — circles", u:A+"NabWuVmeZP22FN41JydxcT"},
+     {t:"دليل الهوية", te:"Logo guide", u:A+"CoxJkCTns2PnM8HB5cPAQX"}
+   ]},
+  {t:"شركاء الحياة", e:"Life Partners", img:"pl-shuraka", alt:"Life Partners",
+   go:{u:A+"8HQMwAitCiLdAnjxE49QQS", ar:"افتح وثيقة البودكاست", en:"Vodcast document"}, subs:[]},
+  {t:"صنّاع الإعلام", e:"Media Makers", img:"pl-mediamakers", alt:"Media Makers",
+   go:{u:A+"HYnBqQoZoDEYY895PKUGPf", ar:"افتح وثيقة الرؤية", en:"Creative vision document"},
+   subs:[{t:"دليل الهوية", te:"Logo guide", u:A+"DW32suxLrRxCdedQFCLiox"}]},
+  {t:"مسارات الشاشة الأربعة", e:"Four Screen Tracks", word:{ar:"مسارات الشاشة", en:"Training Programme"},
+   go:{u:A+"2SUPCgcUk8kdrU25eyGRyA", ar:"افتح المنهج", en:"Open the curriculum"}, subs:[]},
+  {t:"الكرسي جاهز", e:"The Chair Is Ready", img:"v-chair", ext:"jpg", alt:"The Chair Is Ready",
+   go:{u:A+"EkLiGhVHMYc6HmQ22d2XMk", ar:"افتح البرومو والستوريبورد", en:"Promo &amp; storyboard"}, subs:[]},
+  {t:"Value Pictures", e:"Identity Guide", img:"pl-valuepic", alt:"Value Pictures",
+   go:{u:A+"FR4cfBCrwngX9rUGYkwvwb", ar:"افتح دليل الهوية", en:"Open the logo guide"}, subs:[]},
+  {t:"معرض الأعمال", e:"Portfolio on Canva", word:{ar:"لؤي بابكر صديق", en:"Canva Portfolio"},
+   go:{u:"https://luaisiddig.my.canva.site/mr-osman", ar:"افتح المعرض الكامل", en:"Open the full portfolio"}, subs:[]}
+];
+
+$("#pros").innerHTML = PROJECTS.map(function(p){
+  var inner = p.img
+    ? '<img src="assets/'+p.img+'.'+(p.ext || "png")+'" alt="'+p.alt+'" loading="lazy">'
+    : '<span class="word">'+bi(p.word.ar, p.word.en)+'<span>'+p.e+'</span></span>';
+  return '<article class="pro">'+
+    '<h3>'+bi(p.t, p.e)+'<em>'+p.e+'</em></h3>'+
+    '<a class="plate" href="'+p.go.u+'" target="_blank" rel="noopener" aria-label="'+p.e+'">'+
+      '<span class="gframe">'+inner+'</span>'+
+      '<span class="zoom">Open ↗</span>'+
+      '<span class="beam" aria-hidden="true"></span></a>'+
+    '<a class="click" href="'+p.go.u+'" target="_blank" rel="noopener">'+
+      '<span class="en-label">CLICK HERE</span><span class="ar">'+bi(p.go.ar, p.go.en)+'</span></a>'+
+    (p.subs.length ? '<div class="subs">'+p.subs.map(function(s){
+        return '<a href="'+s.u+'" target="_blank" rel="noopener">'+bi(s.t, s.te)+' ↗</a>';
+      }).join("")+'</div>' : "")+
+  '</article>';
+}).join("");
+
+/* شعار صغير يبقى صغيراً: لا يُعرض أي شعار أكبر من مقاسه الأصلي */
+$$(".gframe img").forEach(function(im){
+  function fit(){
+    if (!im.naturalWidth) return;
+    im.style.width = Math.min(im.naturalWidth, 300) + "px";
+    im.style.maxHeight = Math.min(im.naturalHeight, 180) + "px";
+  }
+  if (im.complete) fit(); else im.addEventListener("load", fit);
+});
+
+/* ── الرؤية: ثلاث جمل تتبادل ────────────────────────────────── */
+var SAYS = [
+  {q:"مخرج ومدير تصوير محترف منذ اثنين وعشرين عاماً. أنتجتُ وأخرجتُ برامج موسيقية ومسابقات وبرامج إخبارية ووثائقية وتعليمية.",
+   qe:"A professional director and cinematographer for 22 years. I have produced and directed numerous music, competition, news, documentary and educational programmes.",
+   b:"لؤي بابكر صديق", be:"Luai Babiker Siddig"},
+  {q:"الكاميرا لا تصنع المعنى وحدها. الفكرة تسبقها، والديكور والإضاءة والمونتاج كلها تخدم تلك الفكرة — وإن لم تخدمها فهي زينة تُحذف.",
+   qe:"The camera does not make meaning on its own. The idea comes first, and the set, the lighting and the edit all serve that idea — anything that doesn’t is decoration, and decoration gets cut.",
+   b:"لؤي بابكر صديق · مخرج ومنتج", be:"Luai Babiker Siddig · director and producer"},
+  {q:"البرنامج الناجح ليس فقرات متجاورة، بل عمود فقري وطقوس تتكرر كل حلقة حتى يعرفها المشاهد قبل أن تبدأ.",
+   qe:"A format that works is not a row of segments. It is a spine and a set of rituals, repeated every episode until the viewer knows them before they begin.",
+   b:"من بايبل فورمات «بالدار سهرانين»", be:"From the “Baldar Sahraneen” format bible"},
+  {q:"أقرأ الميزانية كما أقرأ النص: كلاهما يحدد ما يظهر على الشاشة. المخرج الذي لا يعرف كلفة لقطته يفقد نصف قراره.",
+   qe:"I read a budget the way I read a script: both decide what reaches the screen. A director who doesn’t know what a shot costs has given away half the decision.",
+   b:"من وثيقة «صدى» للاستثمار", be:"From the Sada investment document"}
+];
+var vi = 0, vq = $("#vq"), vby = $("#vby"), vdots = $("#vdots");
+vdots.innerHTML = SAYS.map(function(_, i){ return '<button type="button" aria-label="Quote '+(i+1)+'"'+(i===0?' class="on"':'')+'></button>'; }).join("");
+function showSay(i){
+  vi = (i + SAYS.length) % SAYS.length;
+  vq.textContent = (lang === "en") ? SAYS[vi].qe : SAYS[vi].q;
+  vby.textContent = (lang === "en") ? SAYS[vi].be : SAYS[vi].b;
+  $$("button", vdots).forEach(function(d, ix){ d.classList.toggle("on", ix === vi); });
+}
+vdots.addEventListener("click", function(e){
+  var b = e.target.closest("button"); if (!b) return;
+  showSay($$("button", vdots).indexOf(b));
+});
+if (!calm) setInterval(function(){ showSay(vi + 1); }, 9000);
+
+/* ── الكواليس ───────────────────────────────────────────────── */
+var SHOTS = [
+  {i:"me-podcast",    c:"في استوديو البودكاست",                 ce:"In the podcast studio"},
+  {i:"me-camera",     c:"خلف الكاميرا السينمائية",              ce:"Behind the cinema camera"},
+  {i:"me-control",    c:"غرفة التحكم أثناء البث",               ce:"The gallery during transmission"},
+  {i:"me-mixer",      c:"على طاولة المزج",                     ce:"At the vision mixer"},
+  {i:"me-rig",        c:"تجهيز الكاميرا",                      ce:"Rigging the camera"},
+  {i:"me-field",      c:"تصوير خارجي في الجبل",                 ce:"Shooting on location in the hills"},
+  {i:"team-location", c:"فريق العمل في موقع سد النهضة — إثيوبيا", ce:"The crew at the Renaissance Dam — Ethiopia"},
+  {i:"me-onset",      c:"داخل البلاتوه مع الضيوف",              ce:"On the studio floor with guests"},
+  {i:"me-gallery",    c:"من غرفة الإخراج",                     ce:"From the control room"},
+  {i:"me-ibc-rig",    c:"معدات الكاميرا — IBC",                ce:"Camera gear — IBC"},
+  {i:"me-walk",       c:"في الطريق إلى موقع التصوير",           ce:"On the way to location"},
+  {i:"me-s24",        c:"استوديو السودان 24",                  ce:"Sudania 24 studio"},
+  {i:"me-us",         c:"تصوير ميداني",                        ce:"Field shooting"}
+];
+$("#btsGrid").innerHTML = SHOTS.map(function(s){
+  return '<button class="shot" type="button" data-img="assets/'+s.i+'.jpg" data-cap="'+s.c+'" data-cape="'+s.ce+'">'+
+    '<span class="in"><img src="assets/'+s.i+'.jpg" alt="'+s.ce+'" loading="lazy">'+
+      '<span class="lens" aria-hidden="true"></span></span>'+
+    '<span class="cap">'+bi(s.c, s.ce)+'</span></button>';
+}).join("");
+
+/* ── طبقات العرض ────────────────────────────────────────────── */
+var cine = $("#cine"), cineV = $("#cineV"), cineCap = $("#cineCap");
+var lb = $("#lb"), lbImg = $("#lbImg"), lbCap = $("#lbCap");
+function openCine(v, t, e){
+  cineV.src = "assets/" + v + ".mp4";
+  cineV.poster = "assets/" + v + ".jpg";
+  cineCap.innerHTML = (lang === "en" ? e : t) + (e ? '<em>' + e + '</em>' : "");
+  cine.classList.add("open");
+  var p = cineV.play(); if (p && p.catch) p.catch(function(){});
+}
+function closeAll(){
+  if (cine.classList.contains("open")){ cineV.pause(); cineV.removeAttribute("src"); cineV.load(); }
+  cine.classList.remove("open"); lb.classList.remove("open");
+}
+document.addEventListener("click", function(e){
+  var w = e.target.closest(".work");
+  if (w){ openCine(w.getAttribute("data-v"), w.getAttribute("data-t"), w.getAttribute("data-te")); return; }
+  if (e.target.closest("[data-reel]")){ openCine(REEL.v, REEL.t, REEL.e); return; }
+  var s = e.target.closest(".shot");
+  if (s){
+    lbImg.removeAttribute("style");
+    lbImg.src = s.getAttribute("data-img");
+    lbImg.onload = function(){ lbImg.style.width = lbImg.naturalWidth + "px"; };  /* لا تكبير فوق الأصل */
+    lbCap.textContent = s.getAttribute(lang === "en" ? "data-cape" : "data-cap");
+    lb.classList.add("open"); return;
+  }
+  if (e.target.closest("[data-close]") || e.target.classList.contains("over")) closeAll();
+});
+addEventListener("keydown", function(e){ if (e.key === "Escape") closeAll(); });
+
+/* ── النسخ، بثلاث طبقات لأن الإطار المعزول قد يمنع الحافظة ──── */
+var toast = $("#toast"), tt;
+function say(m){ toast.textContent = m; toast.classList.add("on"); clearTimeout(tt); tt = setTimeout(function(){ toast.classList.remove("on"); }, 2200); }
+$$("[data-copy]").forEach(function(b){
+  b.addEventListener("click", function(){
+    var txt = $("#" + b.getAttribute("data-copy")).textContent.trim();
+    function done(ok){ say(lang === "en" ? (ok ? "Copied" : "Select it and copy manually") : (ok ? "نُسخ" : "حدّده ثم انسخه يدوياً")); }
+    function fallback(){
+      var ta = document.createElement("textarea");
+      ta.value = txt; ta.style.position = "fixed"; ta.style.opacity = "0";
+      document.body.appendChild(ta); ta.select();
+      var ok = false; try { ok = document.execCommand("copy"); } catch (err) {}
+      document.body.removeChild(ta);
+      done(ok);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){ done(true); }, fallback);
+    } else fallback();
+  });
+});
+
+/* ── القائمة والتنقل واللغة ─────────────────────────────────── */
+var bar = $("#bar"), menuBtn = $("#menuBtn");
+menuBtn.addEventListener("click", function(){
+  var open = bar.classList.toggle("open");
+  menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+});
+$$(".nav a").forEach(function(a){
+  a.addEventListener("click", function(){ bar.classList.remove("open"); menuBtn.setAttribute("aria-expanded","false"); });
+});
+$("#lang").addEventListener("click", function(){ setLang(lang === "ar" ? "en" : "ar"); });
+setLang(lang);
+
+var secs = ["home","works","docs","vision","bts","contact"];
+if ("IntersectionObserver" in window){
+  var nio = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if (!e.isIntersecting) return;
+      $$(".nav a").forEach(function(a){ a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id); });
+    });
+  }, {rootMargin:"-45% 0px -50% 0px"});
+  secs.forEach(function(id){ var el = document.getElementById(id); if (el) nio.observe(el); });
+}
+})();
+</script>
+
+</body></html>
