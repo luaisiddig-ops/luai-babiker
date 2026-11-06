@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>استوديو سبيك نيشن - المنصة التفاعلية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Noto+Kufi+Arabic:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#0A0E1A; --bg-2:#060912; --surface:#11162A; --surface-2:#181F38;
+  --ink:#F3F5FA; --ink-2:#A9B1CC; --ink-3:#6B7392;
+  --line:#232B4A; --line-2:#323C64;
+  --accent:#F1AB2F; --accent-2:#F5BC55; --accent-ink:#F5BC55; --accent-soft:rgba(241,171,47,.14);
+  --blue:#7FA6EE; --blue-soft:rgba(127,166,238,.14);
+  --gold:#F1AB2F; --good:#4ADE93; --good-soft:rgba(74,222,147,.12); --live:#FF6B6F; --live-soft:rgba(255,107,111,.12);
+  --f-d:"Noto Kufi Arabic","Segoe UI",sans-serif;
+  --f-b:"Cairo","Segoe UI",sans-serif;
+  --f-m:"IBM Plex Mono",monospace;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box}
+html,body{background:var(--bg);color:var(--ink);font-family:var(--f-b);margin:0;direction:rtl;text-align:right}
+h1,h2,h3,h4{font-family:var(--f-d);margin:0}
+button,input,select,textarea{font-family:inherit;color:inherit}
+.mono{font-family:var(--f-m)}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px}
+.topstrip{height:4px;background:linear-gradient(90deg,var(--accent),var(--blue))}
+.hero{padding:40px 0 20px}
+.hero-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-bottom:24px}
+.brand-txt .ar{font-weight:800;font-size:1.1rem;color:var(--accent-ink)}
+.brand-txt .en{font-family:var(--f-m);font-size:10px;color:var(--ink-3);letter-spacing:.15em}
+.hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;line-height:1.2}
+.hero h1 span{color:var(--accent-ink)}
+
+.gate-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;padding:30px 0 60px}
+.gate-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;cursor:pointer;transition:.2s var(--ease)}
+.gate-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+.gc-n{font-family:var(--f-m);font-size:11px;color:var(--ink-3)}
+.gate-card h3{font-size:1.1rem;margin:8px 0 6px}
+.gate-card p{color:var(--ink-2);font-size:.85rem;line-height:1.6}
+
+.portal{position:fixed;inset:0;background:var(--bg);z-index:100;display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:.25s var(--ease)}
+.portal.in{opacity:1;pointer-events:all}
+.portal-bar{display:flex;align-items:center;gap:14px;padding:14px 24px;background:var(--surface);border-bottom:1px solid var(--line)}
+.p-back{border:1px solid var(--line-2);padding:6px 14px;border-radius:8px;background:none;cursor:pointer}
+.portal-body{flex:1;overflow-y:auto;padding:30px 24px 80px}
+
+/* عناصر الفيديوهات والتفاعل */
+.video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin:16px 0}
+.video-container{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;border:1px solid var(--line);background:#000}
+.video-container iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+
+.tab-nav{display:flex;gap:10px;border-bottom:1px solid var(--line);margin-bottom:20px}
+.tab-btn{padding:10px 18px;border:none;background:none;border-bottom:2px solid transparent;cursor:pointer;color:var(--ink-2)}
+.tab-btn.active{border-color:var(--accent);color:var(--accent-ink);font-weight:700}
+
+.form-group{margin-bottom:14px}
+.form-group label{display:block;font-size:.85rem;margin-bottom:6px;color:var(--ink-2)}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:10px 14px;background:var(--bg-2);border:1px solid var(--line-2);border-radius:8px;color:var(--ink)}
+.btn-submit{background:var(--accent);color:#000;font-weight:700;padding:10px 20px;border-radius:8px;border:none;cursor:pointer}
+
+.data-table{width:100%;border-collapse:collapse;margin-top:14px}
+.data-table th,.data-table td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:right;font-size:.85rem}
+.data-table th{background:var(--surface-2)}
+</style>
+</head>
+<body>
+
+<div class="topstrip"></div>
+<div class="wrap hero">
+  <div class="hero-top">
+    <div class="brand-txt"><div class="ar">معهد سبيك نيشن للغات</div><div class="en">SPEAK NATION STUDIO</div></div>
+    <div class="mono" style="font-size:11px;color:var(--ink-3)">الإصدار التفاعلي المكتمل 2026</div>
+  </div>
+  <h1>منصة التشغيل والتحول الرقمي <span>(GATE 00 - GATE 07)</span></h1>
+</div>
+
+<div class="wrap gate-grid">
+  <div class="gate-card" onclick="openGate(0)">
+    <span class="gc-n">GATE 00</span><h3>الملخص التنفيذي</h3><p>رؤية التحول الكاملة وتوزيع الميزانيات.</p>
+  </div>
+  <div class="gate-card" onclick="openGate(1)">
+    <span class="gc-n">GATE 01</span><h3>التشخيص الرقمي بالفيديو</h3><p>عرض فيديوهات المعلمين والتعريف بالمعهد.</p>
+  </div>
+  <div class="gate-card" onclick="openGate(2)">
+    <span class="gc-n">GATE 02</span><h3>الدورة التدريبية</h3><p>تفاصيل 25 ساعة تدريبية وتوزيع الأرباح.</p>
+  </div>
+  <div class="gate-card" onclick="openGate(3)">
+    <span class="gc-n">GATE 03</span><h3>البودكاست والإعلانات</h3><p>عرض فيديوهات الترويج والبودكاست التفاعلي.</p>
+  </div>
+  <div class="gate-card" onclick="openGate(4)">
+    <span class="gc-n">GATE 04</span><h3>إدارة السوشيال ميديا</h3><p>باقات المحتوى الشهري والمقالات.</p>
+  </div>
+  <div class="gate-card" onclick="openGate(5)">
+    <span class="gc-n">GATE 05</span><h3>الهوية البصرية</h3><p>قوالب التصميم والدليل الموحد.</p>
+  </div>
+  <div class="gate-card" onclick="openGate(6)">
+    <span class="gc-n">GATE 06</span><h3>الجدول الزمني والعائد</h3><p>خطة 90 يوماً ونقاط التعادل.</p>
+  </div>
+  <div class="gate-card" onclick="openGate(7)" style="border-color:var(--accent)">
+    <span class="gc-n" style="color:var(--accent)">GATE 07 ★</span><h3>اللوحة التفاعلية والتشغيل</h3><p>تسجيل الحضور، الصرف المالي، والمراسلات.</p>
+  </div>
+</div>
+
+<!-- PORTAL MODAL -->
+<div class="portal" id="portal">
+  <div class="portal-bar">
+    <button class="p-back" onclick="closePortal()">← إغلاق</button>
+    <div id="portalTitle" style="font-weight:700"></div>
+  </div>
+  <div class="portal-body" id="portalContent"></div>
+</div>
+
+<script>
+const gateData = [
+  { title: "GATE 00: الملخص التنفيذي", content: `<p>خطة تشغيل متكاملة لاستثمار متابعى إنستغرام (10.8K) وتحويل يوتيوب وتيك توك لمحرك مبيعات.</p>` },
+  { 
+    title: "GATE 01: التشخيص الرقمي وفيديوهات المعلمين", 
+    content: `
+      <h3>فيديوهات التعريف والتعلم:</h3>
+      <div class="video-grid">
+        <div>
+          <h4 style="margin-bottom:8px">مستر أمين - اللغة العربية</h4>
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/AIa7xntdFYc" title="مستر أمين عربي" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div>
+          <h4 style="margin-bottom:8px">مستر أمين - اللغة الإنجليزية</h4>
+          <div class="video-container">
+            <iframe src="
