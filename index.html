@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>استوديو سبيك نيشن - المنصة التفاعلية</title>
+<title>استوديو سبيك نيشن - المنصة التفاعلية الشاملة</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Noto+Kufi+Arabic:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
@@ -14,7 +14,7 @@
   --line:#232B4A; --line-2:#323C64;
   --accent:#F1AB2F; --accent-2:#F5BC55; --accent-ink:#F5BC55; --accent-soft:rgba(241,171,47,.14);
   --blue:#7FA6EE; --blue-soft:rgba(127,166,238,.14);
-  --gold:#F1AB2F; --good:#4ADE93; --good-soft:rgba(74,222,147,.12); --live:#FF6B6F; --live-soft:rgba(255,107,111,.12);
+  --gold:#F1AB2F; --good:#4ADE93; --good-soft:rgba(74,222,147,.12); --live:#FF6B6F;
   --f-d:"Noto Kufi Arabic","Segoe UI",sans-serif;
   --f-b:"Cairo","Segoe UI",sans-serif;
   --f-m:"IBM Plex Mono",monospace;
@@ -48,7 +48,6 @@ button,input,select,textarea{font-family:inherit;color:inherit}
 .p-back{border:1px solid var(--line-2);padding:6px 14px;border-radius:8px;background:none;cursor:pointer}
 .portal-body{flex:1;overflow-y:auto;padding:30px 24px 80px}
 
-/* عناصر الفيديوهات والتفاعل */
 .video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin:16px 0}
 .video-container{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;border:1px solid var(--line);background:#000}
 .video-container iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
@@ -62,9 +61,13 @@ button,input,select,textarea{font-family:inherit;color:inherit}
 .form-group input,.form-group select,.form-group textarea{width:100%;padding:10px 14px;background:var(--bg-2);border:1px solid var(--line-2);border-radius:8px;color:var(--ink)}
 .btn-submit{background:var(--accent);color:#000;font-weight:700;padding:10px 20px;border-radius:8px;border:none;cursor:pointer}
 
-.data-table{width:100%;border-collapse:collapse;margin-top:14px}
-.data-table th,.data-table td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:right;font-size:.85rem}
-.data-table th{background:var(--surface-2)}
+.data-table{width:100%;border-collapse:collapse;margin:16px 0}
+.data-table th,.data-table td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:right;font-size:.9rem}
+.data-table th{background:var(--surface-2);color:var(--accent-ink)}
+
+.info-box{background:var(--surface);border-right:4px solid var(--accent);padding:16px;border-radius:8px;margin-bottom:16px}
+.info-box h4{margin-bottom:6px;color:var(--accent-ink)}
+.info-box p{margin:0;font-size:.9rem;color:var(--ink-2)}
 </style>
 </head>
 <body>
@@ -73,42 +76,42 @@ button,input,select,textarea{font-family:inherit;color:inherit}
 <div class="wrap hero">
   <div class="hero-top">
     <div class="brand-txt"><div class="ar">معهد سبيك نيشن للغات</div><div class="en">SPEAK NATION STUDIO</div></div>
-    <div class="mono" style="font-size:11px;color:var(--ink-3)">الإصدار التفاعلي المكتمل 2026</div>
+    <div class="mono" style="font-size:11px;color:var(--ink-3)">الإصدار التشغيلي المكتمل 2026</div>
   </div>
   <h1>منصة التشغيل والتحول الرقمي <span>(GATE 00 - GATE 07)</span></h1>
 </div>
 
 <div class="wrap gate-grid">
   <div class="gate-card" onclick="openGate(0)">
-    <span class="gc-n">GATE 00</span><h3>الملخص التنفيذي</h3><p>رؤية التحول الكاملة وتوزيع الميزانيات.</p>
+    <span class="gc-n">GATE 00</span><h3>الملخص التنفيذي</h3><p>رؤية التحول الكاملة وتوزيع الميزانيات والنتائج المتوقعة.</p>
   </div>
   <div class="gate-card" onclick="openGate(1)">
-    <span class="gc-n">GATE 01</span><h3>التشخيص الرقمي بالفيديو</h3><p>عرض فيديوهات المعلمين والتعريف بالمعهد.</p>
+    <span class="gc-n">GATE 01</span><h3>التشخيص الرقمي بالفيديو</h3><p>عرض فيديوهات المعلمين والتعريف بالمنهجية.</p>
   </div>
   <div class="gate-card" onclick="openGate(2)">
-    <span class="gc-n">GATE 02</span><h3>الدورة التدريبية</h3><p>تفاصيل 25 ساعة تدريبية وتوزيع الأرباح.</p>
+    <span class="gc-n">GATE 02</span><h3>الدورة التدريبية</h3><p>تفاصيل 25 ساعة تدريبية هيكل التسعير والأرباح.</p>
   </div>
   <div class="gate-card" onclick="openGate(3)">
     <span class="gc-n">GATE 03</span><h3>البودكاست والإعلانات</h3><p>عرض فيديوهات الترويج والبودكاست التفاعلي.</p>
   </div>
   <div class="gate-card" onclick="openGate(4)">
-    <span class="gc-n">GATE 04</span><h3>إدارة السوشيال ميديا</h3><p>باقات المحتوى الشهري والمقالات.</p>
+    <span class="gc-n">GATE 04</span><h3>إدارة السوشيال ميديا</h3><p>جدول باقات المحتوى الشهري والمقالات.</p>
   </div>
   <div class="gate-card" onclick="openGate(5)">
-    <span class="gc-n">GATE 05</span><h3>الهوية البصرية</h3><p>قوالب التصميم والدليل الموحد.</p>
+    <span class="gc-n">GATE 05</span><h3>الهوية البصرية</h3><p>دليل الاستخدام وقوالب التصاميم الموحدة.</p>
   </div>
   <div class="gate-card" onclick="openGate(6)">
-    <span class="gc-n">GATE 06</span><h3>الجدول الزمني والعائد</h3><p>خطة 90 يوماً ونقاط التعادل.</p>
+    <span class="gc-n">GATE 06</span><h3>الجدول الزمني والعائد</h3><p>خطة 90 يوماً وتحديد نقطة التعادل المالي.</p>
   </div>
   <div class="gate-card" onclick="openGate(7)" style="border-color:var(--accent)">
-    <span class="gc-n" style="color:var(--accent)">GATE 07 ★</span><h3>اللوحة التفاعلية والتشغيل</h3><p>تسجيل الحضور، الصرف المالي، والمراسلات.</p>
+    <span class="gc-n" style="color:var(--accent)">GATE 07 ★</span><h3>اللوحة التفاعلية والتشغيل</h3><p>سجل الحضور، الصرف المالي، والمراسلات.</p>
   </div>
 </div>
 
 <!-- PORTAL MODAL -->
 <div class="portal" id="portal">
   <div class="portal-bar">
-    <button class="p-back" onclick="closePortal()">← إغلاق</button>
+    <button class="p-back" onclick="closePortal()">← إغلاق البوابة</button>
     <div id="portalTitle" style="font-weight:700"></div>
   </div>
   <div class="portal-body" id="portalContent"></div>
@@ -116,11 +119,28 @@ button,input,select,textarea{font-family:inherit;color:inherit}
 
 <script>
 const gateData = [
-  { title: "GATE 00: الملخص التنفيذي", content: `<p>خطة تشغيل متكاملة لاستثمار متابعى إنستغرام (10.8K) وتحويل يوتيوب وتيك توك لمحرك مبيعات.</p>` },
+  { 
+    title: "GATE 00: الملخص التنفيذي ورؤية التحول", 
+    content: `
+      <div class="info-box">
+        <h4>الهدف الاستراتيجي</h4>
+        <p>تحويل قاعدة المتابعين الحالية (10.8K على إنستغرام) إلى قناة مبيعات مباشرة، وتفعيل قنوات يوتيوب وتيك توك كمحرك استقطاب مستمر.</p>
+      </div>
+      <h3>مؤشرات الأداء الرئيسية (KPIs):</h3>
+      <table class="data-table">
+        <thead><tr><th>المحور</th><th>الهدف التشغيلي</th><th>المستهدف الحجمي</th></tr></thead>
+        <tbody>
+          <tr><td>الطلاب الجدد</td><td>تسجيل دفعتين شهرياً</td><td>20 طالب / شهر</td></tr>
+          <tr><td>العائد المتوقع</td><td>تحقيق نمو مالي مستدام</td><td>75,000 د.إ / شهر</td></tr>
+          <tr><td>التفاعل الرقمي</td><td>زيادة الوصول العضوي</td><td>+45% في 90 يوماً</td></tr>
+        </tbody>
+      </table>
+    ` 
+  },
   { 
     title: "GATE 01: التشخيص الرقمي وفيديوهات المعلمين", 
     content: `
-      <h3>فيديوهات التعريف والتعلم:</h3>
+      <p>عرض النماذج التعليمية والتعريف بأسلوب التدريس الحديث المعتمد لدى المعهد:</p>
       <div class="video-grid">
         <div>
           <h4 style="margin-bottom:8px">مستر أمين - اللغة العربية</h4>
@@ -137,11 +157,27 @@ const gateData = [
       </div>
     `
   },
-  { title: "GATE 02: الدورة التدريبية", content: `<p>25 ساعة تدريبية، 10 جلسات. الإيراد المتوقع لدفعة 10 طلاب: 37,500 درهم.</p>` },
+  { 
+    title: "GATE 02: هيكل الدورة التدريبية والعوائد", 
+    content: `
+      <h3>تفاصيل البرنامج التدريبي (25 ساعة):</h3>
+      <div class="info-box">
+        <h4>نظام الجلسات</h4>
+        <p>10 جلسات تدريبية مكثفة (معدل 2.5 ساعة للجلسة)، تشمل التطبيق العملي والمحاكاة المباشرة.</p>
+      </div>
+      <table class="data-table">
+        <thead><tr><th>عدد الطلاب</th><th>رسوم الفرد</th><th>الإيراد الإجمالي</th><th>صافي الربح المتوقع</th></tr></thead>
+        <tbody>
+          <tr><td>10 طلاب (دفعة واحدة)</td><td>3,750 د.إ</td><td>37,500 د.إ</td><td>22,500 د.إ</td></tr>
+          <tr><td>20 طالب (دفعتان)</td><td>3,750 د.إ</td><td>75,000 د.إ</td><td>48,000 د.إ</td></tr>
+        </tbody>
+      </table>
+    ` 
+  },
   { 
     title: "GATE 03: البودكاست والإعلانات الترويجية", 
     content: `
-      <h3>الفيديوهات الترويجية والبرومو:</h3>
+      <h3>الفيديوهات الترويجية وحملات الاستقطاب:</h3>
       <div class="video-grid">
         <div>
           <h4 style="margin-bottom:8px">البرومو الأول (Promo 1)</h4>
@@ -158,9 +194,49 @@ const gateData = [
       </div>
     `
   },
-  { title: "GATE 04: باقات السوشيال ميديا", content: `<p>ثلاث باقات: الأساسية (9,000 د.إ)، المتوسطة (10,500 د.إ)، والمكثفة (12,500 د.إ).</p>` },
-  { title: "GATE 05: الهوية البصرية", content: `<p>مشروع توحيد الهوية والقوالب بقيمة 6,000 درهم.</p>` },
-  { title: "GATE 06: خطة الـ 90 يوماً", content: `<p>مراحل التنفيذ الأسبوعية ومتابعة نتائج المبيعات.</p>` },
+  { 
+    title: "GATE 04: باقات إدارة السوشيال ميديا", 
+    content: `
+      <h3>خيارات الباقات الشهرية المتاحة:</h3>
+      <table class="data-table">
+        <thead><tr><th>الباقة</th><th>عدد المنشورات والفيديوهات</th><th>السعر الشهري</th></tr></thead>
+        <tbody>
+          <tr><td>الباقة الأساسية</td><td>12 منشور + 4 ريلز/تيك توك</td><td>9,000 د.إ</td></tr>
+          <tr><td>الباقة المتوسطة</td><td>20 منشور + 8 ريلز/تيك توك</td><td>10,500 د.إ</td></tr>
+          <tr><td>الباقة المكثفة</td><td>30 منشور + 15 ريلز/تيك توك + إعلانات</td><td>12,500 د.إ</td></tr>
+        </tbody>
+      </table>
+    ` 
+  },
+  { 
+    title: "GATE 05: دليل الهوية البصرية والقوالب", 
+    content: `
+      <div class="info-box">
+        <h4>مشروع توحيد الهوية الرقمية</h4>
+        <p>يشمل تصميم 50 قالب منشورات ريلز وإنستغرام، وتوحيد الخطوط والألوان الرسمية للمعهد بقيمة إجمالية 6,000 درهم.</p>
+      </div>
+      <h3>الألوان الرسمية المعتمدة:</h3>
+      <ul>
+        <li><strong style="color:var(--accent)">الذهبي الأساسي:</strong> #F1AB2F</li>
+        <li><strong style="color:var(--blue)">الأزرق التقني:</strong> #7FA6EE</li>
+        <li><strong style="color:var(--surface-2)">الخلفية الداكنة:</strong> #11162A</li>
+      </ul>
+    ` 
+  },
+  { 
+    title: "GATE 06: الجدول الزمني وخطة الـ 90 يوماً", 
+    content: `
+      <h3>مراحل التنفيذ التشغيلي:</h3>
+      <table class="data-table">
+        <thead><tr><th>المرحلة</th><th>المدمة الزمنية</th><th>المهام الرئيسية</th></tr></thead>
+        <tbody>
+          <tr><td>الشهر الأول</td><td>الأيام 1 - 30</td><td>إطلاق الحملة الإعلانية وتجهيز القوالب والهوية</td></tr>
+          <tr><td>الشهر الثاني</td><td>الأيام 31 - 60</td><td>بدء الدفعة الأولى وتسجيل فيديوهات البودكاست</td></tr>
+          <tr><td>الشهر الثالث</td><td>الأيام 61 - 90</td><td>مراجعة العائد المالي وتوسيع باقات التسويق</td></tr>
+        </tbody>
+      </table>
+    ` 
+  },
   { 
     title: "GATE 07: اللوحة التفاعلية للتشغيل", 
     content: `
