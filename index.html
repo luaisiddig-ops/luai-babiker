@@ -131,4 +131,140 @@ const gateData = [
         <div>
           <h4 style="margin-bottom:8px">مستر أمين - اللغة الإنجليزية</h4>
           <div class="video-container">
-            <iframe src="
+            <iframe src="https://www.youtube.com/embed/sbaixB3HxEo" title="مستر أمين إنجليزي" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    `
+  },
+  { title: "GATE 02: الدورة التدريبية", content: `<p>25 ساعة تدريبية، 10 جلسات. الإيراد المتوقع لدفعة 10 طلاب: 37,500 درهم.</p>` },
+  { 
+    title: "GATE 03: البودكاست والإعلانات الترويجية", 
+    content: `
+      <h3>الفيديوهات الترويجية والبرومو:</h3>
+      <div class="video-grid">
+        <div>
+          <h4 style="margin-bottom:8px">البرومو الأول (Promo 1)</h4>
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/JzZaexbrBj0" title="Promo 1" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div>
+          <h4 style="margin-bottom:8px">البرومو الثاني (Promo 2)</h4>
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/7yBec92tU38" title="Promo 2" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    `
+  },
+  { title: "GATE 04: باقات السوشيال ميديا", content: `<p>ثلاث باقات: الأساسية (9,000 د.إ)، المتوسطة (10,500 د.إ)، والمكثفة (12,500 د.إ).</p>` },
+  { title: "GATE 05: الهوية البصرية", content: `<p>مشروع توحيد الهوية والقوالب بقيمة 6,000 درهم.</p>` },
+  { title: "GATE 06: خطة الـ 90 يوماً", content: `<p>مراحل التنفيذ الأسبوعية ومتابعة نتائج المبيعات.</p>` },
+  { 
+    title: "GATE 07: اللوحة التفاعلية للتشغيل", 
+    content: `
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab('att')">تسجيل الحضور</button>
+        <button class="tab-btn" onclick="switchTab('fin')">الصرف المالي</button>
+        <button class="tab-btn" onclick="switchTab('msg')">المراسلات</button>
+      </div>
+
+      <!-- TAB 1: ATTENDANCE -->
+      <div id="tab-att">
+        <h4>تسجيل حضور المعلمين والطلاب</h4>
+        <div class="form-group">
+          <label>اسم الشخص</label>
+          <input type="text" id="att-name" placeholder="أدخل الاسم">
+        </div>
+        <div class="form-group">
+          <label>الصفة</label>
+          <select id="att-role"><option>معلم</option><option>طالب</option></select>
+        </div>
+        <button class="btn-submit" onclick="addAttendance()">تسجيل الحضور</button>
+        <table class="data-table">
+          <thead><tr><th>الاسم</th><th>الصفة</th><th>الوقت</th></tr></thead>
+          <tbody id="att-list"></tbody>
+        </table>
+      </div>
+
+      <!-- TAB 2: FINANCE -->
+      <div id="tab-fin" style="display:none">
+        <h4>سجل المصروفات التشغيلية</h4>
+        <div class="form-group">
+          <label>البيان / الإجراء</label>
+          <input type="text" id="fin-title" placeholder="مثال: شراء ميكروفون">
+        </div>
+        <div class="form-group">
+          <label>المبلغ (درهم)</label>
+          <input type="number" id="fin-amount" placeholder="0">
+        </div>
+        <button class="btn-submit" onclick="addExpense()">إضافة مصروف</button>
+        <table class="data-table">
+          <thead><tr><th>البيان</th><th>المبلغ</th></tr></thead>
+          <tbody id="fin-list"></tbody>
+        </table>
+      </div>
+
+      <!-- TAB 3: MESSAGES -->
+      <div id="tab-msg" style="display:none">
+        <h4>المراسلات والإشعارات الداخلية</h4>
+        <div class="form-group">
+          <label>نص الرسالة</label>
+          <textarea id="msg-text" rows="3" placeholder="اكتب رسالتك للإدارة..."></textarea>
+        </div>
+        <button class="btn-submit" onclick="sendMessage()">إرسال الرسالة</button>
+        <div id="msg-list" style="margin-top:14px"></div>
+      </div>
+    `
+  }
+];
+
+function openGate(idx){
+  document.getElementById('portalTitle').innerText = gateData[idx].title;
+  document.getElementById('portalContent').innerHTML = gateData[idx].content;
+  const p = document.getElementById('portal');
+  p.style.display = 'flex';
+  setTimeout(()=> p.classList.add('in'), 10);
+}
+
+function closePortal(){
+  const p = document.getElementById('portal');
+  p.classList.remove('in');
+  setTimeout(()=> p.style.display = 'none', 250);
+}
+
+function switchTab(type){
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('tab-att').style.display = type==='att'?'block':'none';
+  document.getElementById('tab-fin').style.display = type==='fin'?'block':'none';
+  document.getElementById('tab-msg').style.display = type==='msg'?'block':'none';
+}
+
+function addAttendance(){
+  const name = document.getElementById('att-name').value;
+  const role = document.getElementById('att-role').value;
+  if(!name) return alert('يرجى كتابة الاسم');
+  const time = new Date().toLocaleTimeString('ar-AE');
+  document.getElementById('att-list').innerHTML += `<tr><td>${name}</td><td>${role}</td><td>${time}</td></tr>`;
+  document.getElementById('att-name').value = '';
+}
+
+function addExpense(){
+  const title = document.getElementById('fin-title').value;
+  const amount = document.getElementById('fin-amount').value;
+  if(!title || !amount) return alert('يرجى ملء كافة الخانات');
+  document.getElementById('fin-list').innerHTML += `<tr><td>${title}</td><td>${amount} د.إ</td></tr>`;
+  document.getElementById('fin-title').value = ''; document.getElementById('fin-amount').value = '';
+}
+
+function sendMessage(){
+  const txt = document.getElementById('msg-text').value;
+  if(!txt) return alert('يرجى كتابة نص الرسالة');
+  document.getElementById('msg-list').innerHTML += `<div style="background:var(--surface-2);padding:10px;border-radius:8px;margin-bottom:8px">${txt}</div>`;
+  document.getElementById('msg-text').value = '';
+}
+</script>
+</body>
+</html>
